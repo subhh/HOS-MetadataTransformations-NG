@@ -1,0 +1,234 @@
+<rdf:RDF
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:dct="http://purl.org/dc/terms/"
+    xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+  <rdf:Description rdf:ID="tore">
+    <skos:prefLabel>TUHH Open Research</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Technische Universität Hamburg</skos:prefLabel>
+        <dc:identifier>tuhh</dc:identifier>
+        <geo:lat>53.463558</geo:lat>
+        <geo:long>9.969581</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:ID="uhhl2g">
+    <skos:prefLabel>Lecture2Go UHH</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Universität Hamburg</skos:prefLabel>
+        <dc:identifier>uhh</dc:identifier>
+        <geo:lat>53.5630101</geo:lat>
+        <geo:long>9.9870572</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:ID="ukefdr">
+    <skos:prefLabel>Forschungsdatenrepositorium des UKE</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Universitätsklinikum Hamburg-Eppendorf</skos:prefLabel>
+        <dc:identifier>uke</dc:identifier>
+        <geo:lat>53.590312</geo:lat>
+        <geo:long>9.978624</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:ID="dkrzfdm">
+    <skos:prefLabel>Forschungsdaten DKRZ</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Deutsches Klimarechenzentrum</skos:prefLabel>
+        <dc:identifier>dkrz</dc:identifier>
+        <geo:lat>53.567047</geo:lat>
+        <geo:long>9.976418</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:ID="hawrepo">
+    <skos:prefLabel>Hochschulschriftenserver der HAW Hamburg</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Hochschule für Angewandte Wissenschaften Hamburg</skos:prefLabel>
+        <dc:identifier>haw</dc:identifier>
+        <geo:lat>53.556675</geo:lat>
+        <geo:long>10.022076</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:ID="hcurepo">
+    <skos:prefLabel>Volltextserver der HCU</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>HafenCity Universität Hamburg</skos:prefLabel>
+        <dc:identifier>hcu</dc:identifier>
+        <geo:lat>53.540253</geo:lat>
+        <geo:long>10.004717</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:ID="hsurepo">
+    <skos:prefLabel>Volltextserver der HSU</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Helmut-Schmidt-Universität Hamburg</skos:prefLabel>
+        <dc:identifier>hsu</dc:identifier>
+        <geo:lat>53.568590</geo:lat>
+        <geo:long>10.110153</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:ID="tuhhfdm">
+    <skos:prefLabel>TUHH @ Zenodo</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Technische Universität Hamburg</skos:prefLabel>
+        <dc:identifier>tuhh</dc:identifier>
+        <geo:lat>53.463558</geo:lat>
+        <geo:long>9.969581</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:ID="uhhediss">
+    <skos:prefLabel>E-Dissertationen der UHH</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Universität Hamburg</skos:prefLabel>
+        <dc:identifier>uhh</dc:identifier>
+        <geo:lat>53.5630101</geo:lat>
+        <geo:long>9.9870572</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:ID="uhhfdm">
+    <skos:prefLabel>Forschungsdatenrepositorium der UHH</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Universität Hamburg</skos:prefLabel>
+        <dc:identifier>uhh</dc:identifier>
+        <geo:lat>53.5630101</geo:lat>
+        <geo:long>9.9870572</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:ID="uhhfis">
+    <skos:prefLabel>Forschungsinformationssystem der UHH</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Universität Hamburg</skos:prefLabel>
+        <dc:identifier>uhh</dc:identifier>
+        <geo:lat>53.5630101</geo:lat>
+        <geo:long>9.9870572</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:ID="ukefis">
+    <skos:prefLabel>Forschungsinformationssystem des UKE</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Universitätsklinikum Hamburg-Eppendorf</skos:prefLabel>
+        <dc:identifier>uke</dc:identifier>
+        <geo:lat>53.590312</geo:lat>
+        <geo:long>9.978624</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <!-- Außeruniversitäre via EPflicht -->
+  <rdf:Description rdf:ID="desy-epflicht">
+    <skos:prefLabel>DESY EPflicht</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Deutsche Elektronen-Synchrotron</skos:prefLabel>
+        <dc:identifier>desy</dc:identifier>
+        <geo:lat>53.5730276</geo:lat>
+        <geo:long>9.8787958</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:ID="bsh-epflicht">
+    <skos:prefLabel>BSH EPflicht</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Bundesamt für Seeschifffahrt und Hydrographie</skos:prefLabel>
+        <dc:identifier>bsh</dc:identifier>
+        <geo:lat>53.5469284</geo:lat>
+        <geo:long>9.9653133</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+
+  <rdf:Description rdf:ID="bredow-epflicht">
+    <skos:prefLabel>Bredow EPflicht</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Hans-Bredow-Institut für Medienforschung</skos:prefLabel>
+        <dc:identifier>bredow</dc:identifier>
+        <geo:lat>53.5656137</geo:lat>
+        <geo:long>9.9873356</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+
+  <rdf:Description rdf:ID="dkrz-epflicht">
+    <skos:prefLabel>DKRZ EPflicht</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Deutsches Klimarechenzentrum</skos:prefLabel>
+        <dc:identifier>dkrz</dc:identifier>
+        <geo:lat>53.567047</geo:lat>
+        <geo:long>9.976418</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+
+  <rdf:Description rdf:ID="giga-epflicht">
+    <skos:prefLabel>GIGA EPflicht</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>German Institute of Global and Area Studies</skos:prefLabel>
+        <dc:identifier>giga</dc:identifier>
+        <geo:lat>53.5574755</geo:lat>
+        <geo:long>9.9903359</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+
+  <rdf:Description rdf:ID="hwwi-epflicht">
+    <skos:prefLabel>HWWI EPflicht</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Hamburgisches WeltWirtschafts Institut</skos:prefLabel>
+        <dc:identifier>hwwi</dc:identifier>
+        <geo:lat>53.5458792</geo:lat>
+        <geo:long>10.0056495</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+
+  <rdf:Description rdf:ID="mpimeteor-epflicht">
+    <skos:prefLabel>MPI Meteorologie EPflicht</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Max-Planck-Institut für Meteorologie</skos:prefLabel>
+        <dc:identifier>mpimeteor</dc:identifier>
+        <geo:lat>53.5677331</geo:lat>
+        <geo:long>9.9729681</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+
+  <rdf:Description rdf:ID="hos">
+    <skos:prefLabel>Hamburg Open Science</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Hamburg Open Science</skos:prefLabel>
+        <dc:identifier>hos</dc:identifier>
+        <geo:lat>53.5630101</geo:lat>
+        <geo:long>9.9870572</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+</rdf:RDF>
