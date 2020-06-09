@@ -141,7 +141,7 @@
     <skos:prefLabel>DESY EPflicht</skos:prefLabel>
     <dct:publisher>
       <dct:Agent>
-        <skos:prefLabel>Deutsche Elektronen-Synchrotron</skos:prefLabel>
+        <skos:prefLabel>Deutsches Elektronen-Synchrotron DESY</skos:prefLabel>
         <dc:identifier>desy</dc:identifier>
         <geo:lat>53.5730276</geo:lat>
         <geo:long>9.8787958</geo:long>
@@ -164,7 +164,7 @@
     <skos:prefLabel>Bredow EPflicht</skos:prefLabel>
     <dct:publisher>
       <dct:Agent>
-        <skos:prefLabel>Hans-Bredow-Institut für Medienforschung</skos:prefLabel>
+        <skos:prefLabel>Leibniz-Institut für Medienforschung │ Hans-Bredow-Institut (HBI)</skos:prefLabel>
         <dc:identifier>bredow</dc:identifier>
         <geo:lat>53.5656137</geo:lat>
         <geo:long>9.9873356</geo:long>
