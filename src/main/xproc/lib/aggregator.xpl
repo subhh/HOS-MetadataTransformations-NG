@@ -64,9 +64,6 @@
     </p:xslt>
 
     <p:viewport match="field[@name = 'id']">
-      <p:viewport-source>
-        <p:pipe step="rdfxml-to-solr" port="result"/>
-      </p:viewport-source>
       <p:hash match="text()" algorithm="md" version="5">
         <p:with-option name="value" select="normalize-space(.)"/>
         <p:input port="parameters">
@@ -74,6 +71,7 @@
         </p:input>
       </p:hash>
     </p:viewport>
+
   </p:declare-step>
 
   <p:declare-step type="aggregator:validate-solr-xml">
