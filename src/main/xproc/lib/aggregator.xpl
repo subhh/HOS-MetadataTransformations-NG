@@ -41,7 +41,7 @@
         <p:with-option name="replace" select="concat('&quot;', $dct:modified, '&quot;')"/>
       </p:string-replace>
       <p:insert match="Record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/dct:isPartOf/aggregator:Collection" position="last-child">
-        <p:input port="insertion" select="rdf:Description/*">
+        <p:input port="insertion" select="/rdf:RDF/rdf:Description/*">
           <p:pipe step="insert-source-description" port="description"/>
         </p:input>
       </p:insert>
