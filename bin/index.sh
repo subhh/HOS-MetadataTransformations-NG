@@ -10,6 +10,6 @@ source $basedir/solr.credentials
 
 for source in $basedir/../data/*
 do
-    document=$(realpath $basedir/solr.xml)
+    document=$source/solr.xml
     /usr/bin/curl -H "Content-Type: application/xml" --data-binary @${document} $solrUrl
 done
