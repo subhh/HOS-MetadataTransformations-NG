@@ -8,13 +8,20 @@
     <header>Verarbeitungspipeline für bibliographische Metadaten</header>
   </p:documentation>
 
-  <p:input  port="source" primary="true"/>
   <p:output port="result" primary="true"/>
 
-  <p:option name="sourceId" required="true"/>
+  <p:option name="sourceDirectory" required="true"/>
 
   <p:import href="lib/library.xpl"/>
   <p:import href="lib/aggregator.xpl"/>
+
+  <p:load name="load-description">
+    <p:with-option name="href" select="resolve-uri('about.rdf', resolve-uri($sourceDirectory))"/>
+  </p:load>
+
+  <p:load name="load-records">
+    <p:with-option name="href" select="resolve-uri('records.xml', resolve-uri($sourceDirectory))"/>
+  </p:load>
 
   <library:preprocess-source/>
   <library:validate-source/>
@@ -24,7 +31,9 @@
   </p:viewport>
 
   <aggregator:insert-source-description>
-    <p:with-option name="sourceId" select="$sourceId"/>
+    <p:input port="description">
+      <p:pipe step="load-description" port="result"/>
+    </p:input>
   </aggregator:insert-source-description>
 
   <aggregator:to-solr-xml/>
