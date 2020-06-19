@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Datenquellen prozessieren
+# Daten indexieren
 #
 
 coreId=$1
