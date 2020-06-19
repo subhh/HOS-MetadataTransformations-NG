@@ -6,40 +6,12 @@
            xmlns:p="http://www.w3.org/ns/xproc"
            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 
-    <p:declare-step type="aggregator:load-source-description">
-    <p:output port="result" primary="true"/>
-
-    <p:option name="sourceId" required="true"/>
-
-    <p:load href="../../resources/sources.rdf"/>
-    <p:choose>
-      <p:when test="/rdf:RDF/rdf:Description[@rdf:ID eq $sourceId]">
-        <p:filter name="get-source-description">
-          <p:with-option name="select" select="concat('/rdf:RDF/rdf:Description[@rdf:ID eq &quot;', $sourceId, '&quot;]')"/>
-        </p:filter>
-      </p:when>
-      <p:otherwise>
-        <p:error code="aggregator:UnknownSource">
-          <p:input port="source">
-            <p:inline><c:error>The given source is not defined in the registry</c:error></p:inline>
-          </p:input>
-        </p:error>
-      </p:otherwise>
-    </p:choose>
-
-  </p:declare-step>
-
   <p:declare-step type="aggregator:insert-source-description" name="insert-source-description">
     <p:input  port="source" primary="true"/>
+    <p:input  port="description" primary="false"/>
     <p:output port="result" primary="true">
       <p:pipe step="insert" port="result"/>
     </p:output>
-
-    <p:option name="sourceId" required="true"/>
-
-    <aggregator:load-source-description name="get-source-description">
-      <p:with-option name="sourceId" select="$sourceId"/>
-    </aggregator:load-source-description>
 
     <p:viewport match="Record" name="insert">
       <p:viewport-source>
@@ -70,7 +42,7 @@
       </p:string-replace>
       <p:insert match="Record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/dct:isPartOf/aggregator:Collection" position="last-child">
         <p:input port="insertion" select="rdf:Description/*">
-          <p:pipe step="get-source-description" port="result"/>
+          <p:pipe step="insert-source-description" port="description"/>
         </p:input>
       </p:insert>
 
@@ -90,7 +62,7 @@
         <p:empty/>
       </p:input>
     </p:xslt>
-    
+
   </p:declare-step>
 
   <p:declare-step type="aggregator:validate-solr-xml">
@@ -128,5 +100,5 @@
     </p:try>
 
   </p:declare-step>
-  
+
 </p:library>
