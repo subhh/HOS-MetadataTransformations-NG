@@ -1,0 +1,48 @@
+Copyright 2011-2020 by <xml-project /> Achim Berndzen
+All rights reserved.
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+In addition, certain libraries used in MorganaXProc-IIIse are released under
+their own license terms, as listed below.
+
+The following unmodified libraries are released under the Apache
+license, Version 2.0:
+ 	- commons-codec-1.x.jar Copyright 1999-2019 The Apache Software Foundation
+ 	- commons-logging-1.x.jar Copyright 1999-2019 The Apache Software Foundation
+ 	- httpclient-4.5.x.jar Copyright 1999-2019 The Apache Software Foundation
+ 	- httpcore-4.4.x.jar Copyright 1999-2019 The Apache Software Foundation
+ 	- httpmime-4.5.x.jar Copyright 1999-2019 The Apache Software Foundation
+	- guava-23.0.jar Copyright (C) 2011 The Guava Authors
+	- tagsoup-1.2.1.jar Copyright 2002-2008 by John Cowan
+
+The following unmodified libraries are released under the MIT License:
+	- slf4j-api-1.7.x.jar Copyright (c) 2004-2017 QOS.ch
+	- slf4j-nop-1.7.x.jar Copyright (c) 2004-2017 QOS.ch
+	- quasar-core-0.7.9.jar Copyright (c) 2013-2018, Parallel Universe Software Co. All rights reserved.
+	- quasar-actors-0.7.9.jar Copyright (c) 2013-2018, Parallel Universe Software Co. All rights reserved.
+	- jing.jar Copyright (c) 2001, 2002, 2003, 2008 Thai Open Source Software Center Ltd.
+	
+The following unmodified libraries are released under a 3-Clause BSD License:
+	- kryo-4.0.1.jar Copyright (c) 2008, Nathan Sweet All rights reserved.
+	
+The following unmodified libraries are released under COMMON DEVELOPMENT AND DISTRIBUTION LICENSE and
+The GNU General Public License (GPL) Version 2 
+	- javax.mail-1.6.2.jar Copyright (c) 1997-2018 Oracle and/or its affiliates. All rights reserved.
+
+
+	
+Additionally the source code of MorganaXProc-IIIse contains code originally developed for Trang.
+Copyright (c) 2002, 2003, 2008 Thai Open Source Software Center Ltd
+All rights reserved.
