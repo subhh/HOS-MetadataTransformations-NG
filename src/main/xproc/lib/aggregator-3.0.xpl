@@ -41,6 +41,10 @@
       <p:insert match="Record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/dct:isPartOf/aggregator:Collection" position="last-child">
         <p:with-input port="insertion" pipe="description@insert-source-description" select="/rdf:RDF/rdf:Description/*"/>
       </p:insert>
+      <p:insert match="Record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record" position="last-child">
+        <p:with-input port="insertion" pipe="current@insert" select="Record/header/setSpec"/>
+      </p:insert>
+      <p:rename match="Record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/setSpec" new-name="dc:subject"/>
     </p:viewport>
 
   </p:declare-step>

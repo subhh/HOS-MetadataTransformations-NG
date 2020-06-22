@@ -45,7 +45,13 @@
           <p:pipe step="insert-source-description" port="description"/>
         </p:input>
       </p:insert>
-
+      <p:insert match="Record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record" position="last-child">
+        <p:input port="insertion" select="Record/header/setSpec">
+          <p:pipe step="insert" port="current"/>
+        </p:input>
+      </p:insert>
+      <p:rename match="Record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/setSpec"
+                new-name="subject" new-prefix="dc" new-namespace="http://purl.org/dc/elements/1.1/"/>
     </p:viewport>
 
   </p:declare-step>
