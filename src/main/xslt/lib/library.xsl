@@ -1,4 +1,4 @@
-<xsl:transform version="3.0"
+<xsl:transform version="3.0" expand-text="yes"
                xmlns:dc="http://purl.org/dc/elements/1.1/"
                xmlns:library="tag:david.maus@sub.uni-hamburg.de,2020:Transform:Library"
                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
