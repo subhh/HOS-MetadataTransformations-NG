@@ -2,6 +2,7 @@
                 xmlns:aggregator="https://openscience.hamburg.de/vocab/aggregator#"
                 xmlns:library="tag:david.maus@sub.uni-hamburg.de,2020:Pipeline:Library"
                 xmlns:c="http://www.w3.org/ns/xproc-step"
+                xmlns:oai="http://www.openarchives.org/OAI/2.0/"
                 xmlns:p="http://www.w3.org/ns/xproc">
 
   <p:documentation>
@@ -26,7 +27,7 @@
   <library:preprocess-source/>
   <library:validate-source/>
 
-  <p:viewport match="metadata">
+  <p:viewport match="oai:metadata">
     <library:lift/>
   </p:viewport>
 
