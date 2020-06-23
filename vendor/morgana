@@ -2,4 +2,4 @@
 
 DIR=$(realpath $(dirname $0))/MorganaXProc-IIIse-0.9.3-beta
 
-exec /usr/bin/java -jar -javaagent:${DIR}/MorganaXProc-IIIse_lib/quasar-core-0.7.9.jar ${DIR}/MorganaXProc-IIIse.jar $@ 
+exec /usr/bin/java -jar -javaagent:${DIR}/MorganaXProc-IIIse_lib/quasar-core-0.7.9.jar ${DIR}/MorganaXProc-IIIse.jar -config=${DIR}/config.xml $@ 
