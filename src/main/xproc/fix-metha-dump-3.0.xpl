@@ -1,4 +1,4 @@
-<p:declare-step version="1.0"
+<p:declare-step version="3.0"
                 xmlns:p="http://www.w3.org/ns/xproc">
 
   <p:input  port="source" primary="true"/>

@@ -21,5 +21,6 @@ for source in $basedir/../data/*
 do
     source $source/about.sh
     metha_cat $baseUrl $format $set > $source/records.xml
-    $basedir/../vendor/morgana $basedir/../src/main/xproc/fix-metha-dump.xpl -input:source=$source/records.xml -output:result=$source/records.xml
+    $basedir/../vendor/calabash -i $source/records.xml -o $source/records.xml $basedir/../src/main/xproc/fix-metha-dump.xpl
+    #$basedir/../vendor/morgana $basedir/../src/main/xproc/fix-metha-dump.xpl -input:source=$source/records.xml -output:result=$source/records.xml
 done
