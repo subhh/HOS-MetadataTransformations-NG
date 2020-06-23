@@ -1,4 +1,4 @@
-<xsl:transform version="3.0"
+<xsl:transform version="3.0" xpath-default-namespace="http://www.openarchives.org/OAI/2.0/"
                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:mode on-no-match="shallow-copy"/>
