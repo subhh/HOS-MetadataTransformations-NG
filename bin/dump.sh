@@ -20,5 +20,5 @@ basedir=$(realpath $(dirname $0))
 for source in $basedir/../data/*
 do
     source $source/about.sh
-    metha_cat $baseUrl $format $set > $source/records.xml
+    metha_cat $baseUrl $format $set | $basedir/../bin/morgana $basedir/../src/main/xproc/dump.xpl -output:result=$source/records.xml
 done
