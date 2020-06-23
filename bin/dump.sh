@@ -17,7 +17,13 @@ function metha_cat () {
 
 basedir=$(realpath $(dirname $0))
 
-for source in $basedir/../data/*
+if [[ -z $1 ]]; then
+    sourceId=*
+else
+    sourceId=$1
+fi
+
+for source in $basedir/../data/$sourceId
 do
     source $source/about.sh
     metha_cat $baseUrl $format $set > $source/records.xml

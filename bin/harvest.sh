@@ -18,8 +18,13 @@ function metha_sync () {
 }
 
 basedir=$(realpath $(dirname $0))
+if [[ -z $1 ]]; then
+    sourceId=*
+else
+    sourceId=$1
+fi
 
-for source in $basedir/../data/*
+for source in $basedir/../data/$sourceId
 do
     source $source/about.sh
     metha_sync $baseUrl $format $set
