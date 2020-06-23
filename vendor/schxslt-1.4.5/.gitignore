@@ -1,0 +1,6 @@
+*-compiled.xsl
+*-compiled.xspec
+*.sch.xsl
+xspec/
+target/
+!/lib/xspec

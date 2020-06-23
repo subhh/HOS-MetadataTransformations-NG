@@ -4,8 +4,8 @@
 	
 	<path_to_iso_skeleton_schematron_1>ISO_SKELETON_SCHEMATRON_1</path_to_iso_skeleton_schematron_1>
 	<path_to_iso_skeleton_schematron_2>ISO_SKELETON_SCHEMATRON_2</path_to_iso_skeleton_schematron_2>
-	<path_to_SchXSLT_1>schxslt-1.4.5-sources/xslt/1.0</path_to_SchXSLT_1>
-	<path_to_SchXSLT_2>schxslt-1.4.5-sources/xslt/2.0</path_to_SchXSLT_2>		
+	<path_to_SchXSLT_1>vendor/schxslt-1.4.5/src/main/resources/xslt/1.0/</path_to_SchXSLT_1>
+	<path_to_SchXSLT_2>vendor/schxslt-1.4.5/src/main/resources/xslt/2.0/</path_to_SchXSLT_2>		
 		
 	<XSLTValidationMode>STRICT</XSLTValidationMode>
 	
