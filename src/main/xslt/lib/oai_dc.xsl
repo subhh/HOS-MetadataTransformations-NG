@@ -16,13 +16,13 @@
   </xsl:template>
 
   <!-- 1. Identifikatoren -->
-  <xsl:template match="dc:identifier[matches(normalize-space(.), 'https?')]" priority="-5">
+  <xsl:template match="dc:identifier[matches(normalize-space(.), 'https?')]">
     <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">
       <xsl:value-of select="normalize-space()"/>
     </dc:identifier>
   </xsl:template>
 
-  <xsl:template match="dc:identifier[matches(normalize-space(.), 'https?://doi.org')]">
+  <xsl:template match="dc:identifier[matches(normalize-space(.), 'https?://doi.org')]" priority="5">
     <dc:identifier rdf:datatype="https://openscience.hamburg.de/vocab/datatype#DOI">
       <xsl:value-of select="substring-after(normalize-space(), 'doi.org/')"/>
     </dc:identifier>
