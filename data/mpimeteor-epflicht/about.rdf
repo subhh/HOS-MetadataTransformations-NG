@@ -8,8 +8,8 @@
     <skos:prefLabel>MPI Meteorologie EPflicht</skos:prefLabel>
     <dct:publisher>
       <dct:Agent>
-        <skos:prefLabel>Max-Planck-Institut für Meteorologie</skos:prefLabel>
-        <dc:identifier>mpimeteor</dc:identifier>
+        <skos:prefLabel>Weitere Datenquellen</skos:prefLabel>
+        <dc:identifier>misc</dc:identifier>
         <geo:lat>53.5677331</geo:lat>
         <geo:long>9.9729681</geo:long>
       </dct:Agent>

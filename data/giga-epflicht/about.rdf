@@ -8,8 +8,8 @@
     <skos:prefLabel>GIGA EPflicht</skos:prefLabel>
     <dct:publisher>
       <dct:Agent>
-        <skos:prefLabel>German Institute of Global and Area Studies</skos:prefLabel>
-        <dc:identifier>giga</dc:identifier>
+        <skos:prefLabel>Weitere Datenquellen</skos:prefLabel>
+        <dc:identifier>misc</dc:identifier>
         <geo:lat>53.5574755</geo:lat>
         <geo:long>9.9903359</geo:long>
       </dct:Agent>

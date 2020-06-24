@@ -8,8 +8,8 @@
     <skos:prefLabel>DESY EPflicht</skos:prefLabel>
     <dct:publisher>
       <dct:Agent>
-        <skos:prefLabel>Deutsches Elektronen-Synchrotron DESY</skos:prefLabel>
-        <dc:identifier>desy</dc:identifier>
+        <skos:prefLabel>Weitere Datenquellen</skos:prefLabel>
+        <dc:identifier>misc</dc:identifier>
         <geo:lat>53.5730276</geo:lat>
         <geo:long>9.8787958</geo:long>
       </dct:Agent>

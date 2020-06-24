@@ -8,8 +8,8 @@
     <skos:prefLabel>Bredow EPflicht</skos:prefLabel>
     <dct:publisher>
       <dct:Agent>
-        <skos:prefLabel>Leibniz-Institut für Medienforschung │ Hans-Bredow-Institut (HBI)</skos:prefLabel>
-        <dc:identifier>bredow</dc:identifier>
+        <skos:prefLabel>Weitere Datenquellen</skos:prefLabel>
+        <dc:identifier>misc</dc:identifier>
         <geo:lat>53.5656137</geo:lat>
         <geo:long>9.9873356</geo:long>
       </dct:Agent>

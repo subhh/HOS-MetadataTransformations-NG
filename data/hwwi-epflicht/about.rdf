@@ -8,8 +8,8 @@
     <skos:prefLabel>HWWI EPflicht</skos:prefLabel>
     <dct:publisher>
       <dct:Agent>
-        <skos:prefLabel>Hamburgisches WeltWirtschafts Institut</skos:prefLabel>
-        <dc:identifier>hwwi</dc:identifier>
+        <skos:prefLabel>Weitere Datenquellen</skos:prefLabel>
+        <dc:identifier>misc</dc:identifier>
         <geo:lat>53.5458792</geo:lat>
         <geo:long>10.0056495</geo:long>
       </dct:Agent>
