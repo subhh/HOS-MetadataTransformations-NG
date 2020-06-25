@@ -1,0 +1,18 @@
+<rdf:RDF
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:dct="http://purl.org/dc/terms/"
+    xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+  <rdf:Description>
+    <skos:prefLabel>Mediathek HFBK Hamburg</skos:prefLabel>
+    <dct:publisher>
+      <dct:Agent>
+        <skos:prefLabel>Hochschule für bildende Künste Hamburg</skos:prefLabel>
+        <dc:identifier>hfbk</dc:identifier>
+        <geo:lat>53.5674536</geo:lat>
+        <geo:long>10.0293682</geo:long>
+      </dct:Agent>
+    </dct:publisher>
+  </rdf:Description>
+</rdf:RDF>
