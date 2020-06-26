@@ -4,4 +4,9 @@
       <sch:assert test="field[@name = 'url']">Für jeden Datensatz ist eine URL hinterlegt</sch:assert>
     </sch:rule>
   </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="doc">
+      <sch:report id="publication-date-in-future" test="xs:int(field[@name = 'date']) gt xs:int(format-date(current-date(), '[Y0001]'))">Das Datum der Veröffentlichung liegt in der Zukunft</sch:report>
+    </sch:rule>
+  </sch:pattern>
 </sch:schema>
