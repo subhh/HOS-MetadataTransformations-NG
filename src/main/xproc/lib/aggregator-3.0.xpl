@@ -14,11 +14,11 @@
       <p:pipe step="insert" port="result"/>
     </p:output>
 
-    <p:viewport match="oai:Record" name="insert">
+    <p:viewport match="oai:record" name="insert">
       <p:with-input pipe="source@insert-source-description"/>
-      <p:variable name="dc:identifier" select="oai:Record/oai:header/oai:identifier"/>
-      <p:variable name="dct:modified" select="substring(oai:Record/oai:header/oai:datestamp, 1, 10)"/>
-      <p:insert match="oai:Record/dct:BibliographicResource" position="first-child">
+      <p:variable name="dc:identifier" select="oai:record/oai:header/oai:identifier"/>
+      <p:variable name="dct:modified" select="substring(oai:record/oai:header/oai:datestamp, 1, 10)"/>
+      <p:insert match="oai:record/dct:BibliographicResource" position="first-child">
         <p:with-input port="insertion">
           <p:inline>
             <aggregator:isProvidedBy>
@@ -33,19 +33,19 @@
           </p:inline>
         </p:with-input>
       </p:insert>
-      <p:string-replace match="oai:Record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/dc:identifier/text()">
+      <p:string-replace match="oai:record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/dc:identifier/text()">
         <p:with-option name="replace" select="concat('&quot;', $dc:identifier, '&quot;')"/>
       </p:string-replace>
-      <p:string-replace match="oai:Record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/dct:modified/text()">
+      <p:string-replace match="oai:record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/dct:modified/text()">
         <p:with-option name="replace" select="concat('&quot;', $dct:modified, '&quot;')"/>
       </p:string-replace>
-      <p:insert match="oai:Record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/dct:isPartOf/aggregator:Collection" position="last-child">
+      <p:insert match="oai:record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/dct:isPartOf/aggregator:Collection" position="last-child">
         <p:with-input port="insertion" pipe="description@insert-source-description" select="/rdf:RDF/rdf:Description/*"/>
       </p:insert>
-      <p:insert match="oai:Record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record" position="last-child">
-        <p:with-input port="insertion" pipe="current@insert" select="oai:Record/oai:header/oai:setSpec"/>
+      <p:insert match="oai:record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record" position="last-child">
+        <p:with-input port="insertion" pipe="current@insert" select="oai:record/oai:header/oai:setSpec"/>
       </p:insert>
-      <p:rename match="oai:Record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/oai:setSpec" new-name="dc:subject"/>
+      <p:rename match="oai:record/dct:BibliographicResource/aggregator:isProvidedBy/aggregator:Record/oai:setSpec" new-name="dc:subject"/>
     </p:viewport>
 
   </p:declare-step>

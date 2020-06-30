@@ -5,8 +5,8 @@
 
   <xsl:template match="Records">
     <xsl:copy>
-      <xsl:for-each-group select="Record" group-by="header/identifier">
-        <xsl:variable name="current-group" as="element(Record)*">
+      <xsl:for-each-group select="record" group-by="header/identifier">
+        <xsl:variable name="current-group" as="element(record)*">
           <xsl:perform-sort select="current-group()">
             <xsl:sort select="header/datestamp" order="descending"/>
           </xsl:perform-sort>

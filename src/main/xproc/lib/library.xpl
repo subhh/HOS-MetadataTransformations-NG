@@ -9,7 +9,7 @@
     <p:input  port="source" primary="true"/>
     <p:output port="result" primary="true"/>
 
-    <p:delete match="oai:Record[oai:header/@status eq 'deleted']"/>
+    <p:delete match="oai:record[oai:header/@status eq 'deleted']"/>
 
     <p:xslt>
       <p:input port="stylesheet">

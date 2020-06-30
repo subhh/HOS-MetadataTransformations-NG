@@ -9,7 +9,7 @@
     <p:input  port="source" primary="true"/>
     <p:output port="result" primary="true"/>
 
-    <p:delete match="oai:Record[oai:header/@status eq 'deleted']"/>
+    <p:delete match="oai:record[oai:header/@status eq 'deleted']"/>
 
     <p:xslt>
       <p:with-input port="stylesheet" href="../../xslt/lib/filter-duplicates.xsl"/>
@@ -19,7 +19,7 @@
   <p:declare-step type="library:validate-source">
     <p:input  port="source" primary="true"/>
     <p:output port="result" primary="true"/>
-    <p:viewport match="oai:Record">
+    <p:viewport match="oai:metadata">
       <library:validate-source-record/>
     </p:viewport>
   </p:declare-step>
@@ -31,29 +31,22 @@
     <p:try>
       <p:group>
         <p:choose>
-          <p:when test="oai:Record/oai:metadata//datacite-4:resource">
+          <p:when test="oai:metadata//datacite-4:resource">
             <p:validate-with-xml-schema>
-              <p:with-input port="source" select="oai:Record/oai:metadata//datacite-4:resource"/>
+              <p:with-input port="source" select="oai:metadata//datacite-4:resource"/>
               <p:with-input port="schema" href="../../resources/schema/datacite4/metadata.xsd"/>
             </p:validate-with-xml-schema>
-            <p:identity>
-              <p:with-input port="source" pipe="source@validate-source-record"/>
-            </p:identity>
           </p:when>
-          <p:when test="oai:Record/oai:metadata//datacite-3:resource">
+          <p:when test="oai:metadata//datacite-3:resource">
             <p:validate-with-xml-schema>
-              <p:with-input port="source" select="oai:Record/oai:metadata//datacite-3:resource"/>
+              <p:with-input port="source" select="oai:metadata//datacite-3:resource"/>
               <p:with-input port="schema" href="../../resources/schema/datacite3/metadata.xsd"/>
             </p:validate-with-xml-schema>
-            <p:identity>
-              <p:with-input port="source" pipe="source@validate-source-record"/>
-            </p:identity>
           </p:when>
           <p:otherwise>
             <p:identity/>
           </p:otherwise>
         </p:choose>
-        <p:identity/>
       </p:group>
       <p:catch name="invalid">
         <p:identity>
@@ -61,6 +54,8 @@
         </p:identity>
       </p:catch>
     </p:try>
+
+    <p:wrap match="/*" wrapper="oai:metadata"/>
 
   </p:declare-step>
 
