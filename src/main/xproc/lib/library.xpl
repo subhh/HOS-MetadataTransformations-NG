@@ -43,11 +43,6 @@
                 <p:document href="../../resources/schema/datacite4/metadata.xsd"/>
               </p:input>
             </p:validate-with-xml-schema>
-            <p:identity>
-              <p:input port="source">
-                <p:pipe step="validate-source-record" port="source"/>
-              </p:input>
-            </p:identity>
           </p:when>
           <p:when test="oai:metadata//datacite-3:resource">
             <p:validate-with-xml-schema>
@@ -56,14 +51,11 @@
                 <p:document href="../../resources/schema/datacite3/metadata.xsd"/>
               </p:input>
             </p:validate-with-xml-schema>
-            <p:identity>
-              <p:input port="source">
-                <p:pipe step="validate-source-record" port="source"/>
-              </p:input>
-            </p:identity>
           </p:when>
           <p:otherwise>
-            <p:identity/>
+            <p:identity>
+              <p:input port="source" select="oai:metadata/*"/>
+            </p:identity>
           </p:otherwise>
         </p:choose>
         <p:identity/>
@@ -76,6 +68,8 @@
         </p:identity>
       </p:catch>
     </p:try>
+
+    <p:wrap match="/*" wrapper="oai:metadata"/>
 
   </p:declare-step>
 
