@@ -1,0 +1,10 @@
+<description xmlns="http://www.jenitennison.com/xslt/xspec" schematron="../../../main/resources/schema/solr-aggregator.sch">
+  <scenario label="A record with publication date in the future is reported">
+    <context>
+      <doc xmlns="">
+        <field name="publicationYear">3000</field>
+      </doc>
+    </context>
+    <expect-report id="publication-date-in-future"/>
+  </scenario>
+</description>
