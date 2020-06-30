@@ -24,7 +24,7 @@
   <p:declare-step type="library:validate-source">
     <p:input  port="source" primary="true"/>
     <p:output port="result" primary="true"/>
-    <p:viewport match="oai:Record">
+    <p:viewport match="oai:metadata">
       <library:validate-source-record/>
     </p:viewport>
   </p:declare-step>
@@ -36,9 +36,9 @@
     <p:try>
       <p:group>
         <p:choose>
-          <p:when test="oai:Record/oai:metadata//datacite-4:resource">
+          <p:when test="oai:metadata//datacite-4:resource">
             <p:validate-with-xml-schema>
-              <p:input port="source" select="oai:Record/oai:metadata//datacite-4:resource"/>
+              <p:input port="source" select="oai:metadata//datacite-4:resource"/>
               <p:input port="schema">
                 <p:document href="../../resources/schema/datacite4/metadata.xsd"/>
               </p:input>
@@ -49,9 +49,9 @@
               </p:input>
             </p:identity>
           </p:when>
-          <p:when test="oai:Record/oai:metadata//datacite-3:resource">
+          <p:when test="oai:metadata//datacite-3:resource">
             <p:validate-with-xml-schema>
-              <p:input port="source" select="oai:Record/oai:metadata//datacite-3:resource"/>
+              <p:input port="source" select="oai:metadata//datacite-3:resource"/>
               <p:input port="schema">
                 <p:document href="../../resources/schema/datacite3/metadata.xsd"/>
               </p:input>
