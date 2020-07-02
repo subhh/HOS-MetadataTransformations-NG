@@ -10,13 +10,9 @@
                xmlns:xs="http://www.w3.org/2001/XMLSchema"
                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:mode on-no-match="shallow-skip"/>
+  <xsl:mode on-no-match="shallow-copy"/>
 
-  <xsl:template match="/">
-    <add>
-      <xsl:apply-templates/>
-    </add>
-  </xsl:template>
+  <xsl:template match="*[ancestor::dct:BibliographicResource]" priority="-10"/>
 
   <xsl:template match="dct:BibliographicResource">
     <xsl:variable name="rights" select="lower-case(string-join(dc:rights))"/>
