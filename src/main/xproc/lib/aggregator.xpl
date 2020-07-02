@@ -117,4 +117,34 @@
 
   </p:declare-step>
 
+  <p:declare-step type="aggregator:prepare-result">
+    <p:input  port="source" primary="true"/>
+    <p:output port="result" primary="true">
+      <p:pipe step="wrap-solr" port="result"/>
+    </p:output>
+    <p:output port="report">
+      <p:pipe step="wrap-report" port="result"/>
+    </p:output>
+
+    <p:filter select="//oai:metadata"/>
+    <p:for-each>
+      <p:unwrap match="oai:metadata"/>
+    </p:for-each>
+
+    <p:split-sequence test="doc" name="split"/>
+
+    <p:wrap-sequence wrapper="add" name="wrap-solr">
+      <p:input port="source">
+        <p:pipe step="split" port="matched"/>
+      </p:input>
+    </p:wrap-sequence>
+
+    <p:wrap-sequence wrapper="report" name="wrap-report">
+      <p:input port="source">
+        <p:pipe step="split" port="not-matched"/>
+      </p:input>
+    </p:wrap-sequence>
+
+  </p:declare-step>
+
 </p:library>

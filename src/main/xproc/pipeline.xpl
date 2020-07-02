@@ -9,7 +9,13 @@
     <header>Verarbeitungspipeline für bibliographische Metadaten</header>
   </p:documentation>
 
-  <p:output port="result" primary="true"/>
+  <p:output port="result" primary="true">
+    <p:pipe step="prepare-result" port="result"/>
+  </p:output>
+
+  <p:output port="report">
+    <p:pipe step="prepare-result" port="report"/>
+  </p:output>
 
   <p:option name="sourceDirectory" required="true"/>
 
@@ -39,5 +45,6 @@
 
   <aggregator:to-solr-xml/>
   <aggregator:validate-solr-xml/>
+  <aggregator:prepare-result name="prepare-result"/>
 
 </p:declare-step>

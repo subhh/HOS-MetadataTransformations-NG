@@ -23,7 +23,7 @@
 
   <p:declare-step type="library:validate-source">
     <p:input  port="source" primary="true"/>
-    <p:output port="result" primary="true"/>
+    <p:output port="result" primary="true" sequence="true"/>
     <p:viewport match="oai:metadata">
       <library:validate-source-record/>
     </p:viewport>
@@ -69,7 +69,7 @@
       </p:catch>
     </p:try>
 
-    <p:wrap match="/*" wrapper="oai:metadata"/>
+    <p:wrap match="/*[1]" wrapper="oai:metadata"/>
 
   </p:declare-step>
 
