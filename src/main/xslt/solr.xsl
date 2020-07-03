@@ -12,7 +12,11 @@
 
   <xsl:mode on-no-match="shallow-copy"/>
 
-  <xsl:template match="*[ancestor::dct:BibliographicResource]" priority="-10"/>
+  <xsl:template match="*[ancestor::dct:BibliographicResource]" priority="-10">
+    <xsl:apply-templates/>
+  </xsl:template>
+
+  <xsl:template match="text()[ancestor::dct:BibliographicResource]" priority="-10"/>
 
   <xsl:template match="dct:BibliographicResource">
     <xsl:variable name="rights" select="lower-case(string-join(dc:rights))"/>
