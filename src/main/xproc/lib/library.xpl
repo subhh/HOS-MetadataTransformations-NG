@@ -3,6 +3,7 @@
            xmlns:datacite-4="http://datacite.org/schema/kernel-4"
            xmlns:library="tag:david.maus@sub.uni-hamburg.de,2020:Pipeline:Library"
            xmlns:oai="http://www.openarchives.org/OAI/2.0/"
+           xmlns:c="http://www.w3.org/ns/xproc-step"
            xmlns:p="http://www.w3.org/ns/xproc">
 
   <p:declare-step type="library:preprocess-source">
@@ -23,10 +24,21 @@
 
   <p:declare-step type="library:validate-source">
     <p:input  port="source" primary="true"/>
-    <p:output port="result" primary="true" sequence="true"/>
+    <p:output port="result" primary="true" sequence="true">
+      <p:pipe step="split-sequence" port="not-matched"/>
+    </p:output>
+    <p:output port="report" sequence="true">
+      <p:pipe step="split-sequence" port="matched"/>
+    </p:output>
+
     <p:viewport match="oai:metadata">
       <library:validate-source-record/>
     </p:viewport>
+
+    <p:filter select="/oai:Records/*"/>
+
+    <p:split-sequence name="split-sequence" test="oai:record[oai:metadata/c:errors]"/>
+
   </p:declare-step>
 
   <p:declare-step type="library:validate-source-record" name="validate-source-record">

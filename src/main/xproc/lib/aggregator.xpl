@@ -5,7 +5,8 @@
            xmlns:dct="http://purl.org/dc/terms/"
            xmlns:oai="http://www.openarchives.org/OAI/2.0/"
            xmlns:p="http://www.w3.org/ns/xproc"
-           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
 
   <p:declare-step type="aggregator:insert-source-description" name="insert-source-description">
     <p:input  port="source" primary="true"/>
@@ -83,11 +84,19 @@
 
   <p:declare-step type="aggregator:validate-solr-xml">
     <p:input  port="source" primary="true"/>
-    <p:output port="result" primary="true"/>
+    <p:output port="result" primary="true" sequence="true">
+      <p:pipe step="split-sequence" port="not-matched"/>
+    </p:output>
+
+    <p:output port="report" sequence="true">
+      <p:pipe step="split-sequence" port="matched"/>
+    </p:output>
 
     <p:viewport match="doc">
       <aggregator:validate-solr-xml-record/>
     </p:viewport>
+
+    <p:split-sequence name="split-sequence" test="oai:record[oai:metadata/svrl:schematron-output]"/>
 
   </p:declare-step>
 
@@ -95,55 +104,43 @@
     <p:input  port="source" primary="true"/>
     <p:output port="result" primary="true" sequence="true"/>
 
-    <p:try>
-      <p:group>
-        <p:validate-with-schematron>
-          <p:input port="schema">
-            <p:document href="../../resources/schema/solr-aggregator.sch"/>
-          </p:input>
-          <p:input port="parameters">
-            <p:empty/>
-          </p:input>
-        </p:validate-with-schematron>
-      </p:group>
-      <p:catch name="invalid">
+    <p:validate-with-schematron name="validate" assert-valid="false">
+      <p:input port="schema">
+        <p:document href="../../resources/schema/solr-aggregator.sch"/>
+      </p:input>
+      <p:input port="parameters">
+        <p:empty/>
+      </p:input>
+    </p:validate-with-schematron>
+
+    <p:choose>
+      <p:xpath-context>
+        <p:pipe step="validate" port="report"/>
+      </p:xpath-context>
+      <p:when test="/svrl:schematron-output/svrl:failed-assert | /svrl:schematron-output/svrl:successful-report">
         <p:identity>
           <p:input port="source">
-            <p:empty/>
+            <p:pipe step="validate" port="report"/>
           </p:input>
         </p:identity>
-      </p:catch>
-    </p:try>
+      </p:when>
+      <p:otherwise>
+        <p:identity>
+          <p:input port="source">
+            <p:pipe step="validate" port="result"/>
+          </p:input>
+        </p:identity>
+      </p:otherwise>
+    </p:choose>
 
   </p:declare-step>
 
-  <p:declare-step type="aggregator:prepare-result">
-    <p:input  port="source" primary="true"/>
-    <p:output port="result" primary="true">
-      <p:pipe step="wrap-solr" port="result"/>
-    </p:output>
-    <p:output port="report">
-      <p:pipe step="wrap-report" port="result"/>
-    </p:output>
+  <p:declare-step type="aggregator:create-solr-document">
+    <p:input  port="source" sequence="true"/>
+    <p:output port="result"/>
 
-    <p:filter select="//oai:metadata"/>
-    <p:for-each>
-      <p:unwrap match="oai:metadata"/>
-    </p:for-each>
-
-    <p:split-sequence test="doc" name="split"/>
-
-    <p:wrap-sequence wrapper="add" name="wrap-solr">
-      <p:input port="source">
-        <p:pipe step="split" port="matched"/>
-      </p:input>
-    </p:wrap-sequence>
-
-    <p:wrap-sequence wrapper="report" name="wrap-report">
-      <p:input port="source">
-        <p:pipe step="split" port="not-matched"/>
-      </p:input>
-    </p:wrap-sequence>
+    <p:filter select="//doc"/>
+    <p:wrap-sequence wrapper="add"/>
 
   </p:declare-step>
 

@@ -11,7 +11,7 @@
 
   <xsl:output indent="yes"/>
 
-  <xsl:mode on-no-match="shallow-copy"/>
+  <xsl:mode on-no-match="shallow-skip"/>
 
   <xsl:include href="lib/library.xsl"/>
   <xsl:include href="lib/datacite-4.xsl"/>

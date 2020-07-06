@@ -5,19 +5,13 @@
                 xmlns:oai="http://www.openarchives.org/OAI/2.0/"
                 xmlns:p="http://www.w3.org/ns/xproc">
 
-  <p:documentation>
-    <header>Verarbeitungspipeline für bibliographische Metadaten</header>
-  </p:documentation>
-
-  <p:output port="result" primary="true">
-    <p:pipe step="prepare-result" port="result"/>
+  <p:output port="result" primary="true"/>
+  <p:output port="validate-source" sequence="true">
+    <p:pipe step="validate-source" port="report"/>
   </p:output>
-
-  <p:output port="report">
-    <p:pipe step="prepare-result" port="report"/>
+  <p:output port="validate-solr" sequence="true">
+    <p:pipe step="validate-solr" port="report"/>
   </p:output>
-
-  <p:option name="sourceDirectory" required="true"/>
 
   <p:import href="lib/library.xpl"/>
   <p:import href="lib/aggregator.xpl"/>
@@ -31,9 +25,9 @@
   </p:load>
 
   <library:preprocess-source/>
-  <library:validate-source/>
+  <library:validate-source name="validate-source"/>
 
-  <p:viewport match="oai:metadata">
+  <p:viewport match="oai:metadata/*">
     <library:lift/>
   </p:viewport>
 
@@ -44,7 +38,7 @@
   </aggregator:insert-source-description>
 
   <aggregator:to-solr-xml/>
-  <aggregator:validate-solr-xml/>
-  <aggregator:prepare-result name="prepare-result"/>
+  <aggregator:validate-solr-xml name="validate-solr"/>
+  <aggregator:create-solr-document/>
 
 </p:declare-step>
