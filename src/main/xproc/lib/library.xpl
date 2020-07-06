@@ -40,7 +40,7 @@
 
     <p:filter select="/oai:Records/*"/>
 
-    <p:split-sequence name="split-sequence" test="oai:record[oai:metadata/c:errors]"/>
+    <p:split-sequence name="split-sequence" test="oai:Records/oai:record[oai:metadata/c:errors]"/>
 
   </p:declare-step>
 
