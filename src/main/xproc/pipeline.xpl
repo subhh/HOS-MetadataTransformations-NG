@@ -27,6 +27,8 @@
   <library:preprocess-source/>
   <library:validate-source name="validate-source"/>
 
+  <p:wrap-sequence wrapper="oai:Records"/>
+
   <p:viewport match="oai:metadata/*">
     <library:lift/>
   </p:viewport>
