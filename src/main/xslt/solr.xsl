@@ -35,6 +35,11 @@
             <xsl:value-of select="dc:identifier[@rdf:datatype = 'http://www.w3.org/2001/XMLSchema#anyURI'][1]"/>
           </field>
         </xsl:when>
+        <xsl:when test="dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#PPN']">
+          <field name="url">
+            <xsl:text>https://kxp.k10plus.de/DB=2.1/PPN?PPN={dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#PPN'][1]}</xsl:text>
+          </field>
+        </xsl:when>
       </xsl:choose>
       <xsl:choose>
         <xsl:when test="matches($rights, 'open|kostenfrei|uhh-l2g|sub.uni-hamburg.de|creativecommons|creative commons|CC|opensource')">
