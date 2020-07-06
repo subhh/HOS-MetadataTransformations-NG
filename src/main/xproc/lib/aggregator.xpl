@@ -99,7 +99,7 @@
       <aggregator:validate-solr-xml-record/>
     </p:viewport>
 
-    <p:split-sequence name="split-sequence" test="oai:record[oai:metadata/svrl:schematron-output]"/>
+    <p:split-sequence name="split-sequence" test="oai:Records/oai:record[oai:metadata/svrl:schematron-output]"/>
 
   </p:declare-step>
 
@@ -144,7 +144,7 @@
   </p:declare-step>
 
   <p:declare-step type="aggregator:create-solr-document">
-    <p:input  port="source" sequence="true"/>
+    <p:input  port="source"/>
     <p:output port="result"/>
 
     <p:filter select="//doc"/>

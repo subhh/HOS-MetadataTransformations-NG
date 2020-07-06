@@ -41,6 +41,8 @@
 
   <aggregator:to-solr-xml/>
   <aggregator:validate-solr-xml name="validate-solr"/>
+
+  <p:wrap-sequence wrapper="oai:Records"/>
   <aggregator:create-solr-document/>
 
 </p:declare-step>

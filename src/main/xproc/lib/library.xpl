@@ -90,11 +90,12 @@
         <p:identity/>
       </p:group>
       <p:catch name="invalid">
-        <p:identity>
-          <p:input port="source">
+        <p:delete match="oai:metadata/*"/>
+        <p:insert match="oai:metadata" position="last-child">
+          <p:input port="insertion">
             <p:pipe port="error" step="invalid"/>
           </p:input>
-        </p:identity>
+        </p:insert>
         <cx:message>
           <p:with-option name="message" select="concat('Ungültiger Quelldatensatz: ', $recordId)"/>
         </cx:message>
