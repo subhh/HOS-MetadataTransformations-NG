@@ -99,7 +99,7 @@
       <aggregator:validate-solr-xml-record/>
     </p:viewport>
 
-    <p:filter select="/oai:Records/*"
+    <p:filter select="/oai:Records/*"/>
 
     <p:split-sequence name="split-sequence" test="oai:record[oai:metadata/svrl:schematron-output]"/>
 
