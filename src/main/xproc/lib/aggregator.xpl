@@ -1,5 +1,6 @@
 <p:library version="1.0"
            xmlns:aggregator="https://openscience.hamburg.de/vocab/aggregator#"
+           xmlns:cx="http://xmlcalabash.com/ns/extensions"
            xmlns:c="http://www.w3.org/ns/xproc-step"
            xmlns:dc="http://purl.org/dc/elements/1.1/"
            xmlns:dct="http://purl.org/dc/terms/"
@@ -7,6 +8,8 @@
            xmlns:p="http://www.w3.org/ns/xproc"
            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
            xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+
+  <p:import href="http://xmlcalabash.com/extension/steps/library-1.0.xpl"/>
 
   <p:declare-step type="aggregator:insert-source-description" name="insert-source-description">
     <p:input  port="source" primary="true"/>
@@ -104,6 +107,8 @@
     <p:input  port="source" primary="true"/>
     <p:output port="result" primary="true" sequence="true"/>
 
+    <p:variable name="recordId" select="doc/field[@name = 'id']"/>
+
     <p:validate-with-schematron name="validate" assert-valid="false">
       <p:input port="schema">
         <p:document href="../../resources/schema/solr-aggregator.sch"/>
@@ -123,6 +128,9 @@
             <p:pipe step="validate" port="report"/>
           </p:input>
         </p:identity>
+        <cx:message>
+          <p:with-option name="message" select="concat('Ungültiger Solr-Datensatz: ', $recordId)"/>
+        </cx:message>
       </p:when>
       <p:otherwise>
         <p:identity>

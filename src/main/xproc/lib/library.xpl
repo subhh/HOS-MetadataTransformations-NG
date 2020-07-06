@@ -4,7 +4,10 @@
            xmlns:library="tag:david.maus@sub.uni-hamburg.de,2020:Pipeline:Library"
            xmlns:oai="http://www.openarchives.org/OAI/2.0/"
            xmlns:c="http://www.w3.org/ns/xproc-step"
+           xmlns:cx="http://xmlcalabash.com/ns/extensions"
            xmlns:p="http://www.w3.org/ns/xproc">
+
+  <p:import href="http://xmlcalabash.com/extension/steps/library-1.0.xpl"/>
 
   <p:declare-step type="library:preprocess-source">
     <p:input  port="source" primary="true"/>
@@ -31,7 +34,7 @@
       <p:pipe step="split-sequence" port="matched"/>
     </p:output>
 
-    <p:viewport match="oai:metadata">
+    <p:viewport match="oai:record">
       <library:validate-source-record/>
     </p:viewport>
 
@@ -45,28 +48,42 @@
     <p:input  port="source" primary="true"/>
     <p:output port="result" primary="true" sequence="true"/>
 
+    <p:variable name="recordId" select="oai:record/oai:header/oai:identifier"/>
+
     <p:try>
       <p:group>
         <p:choose>
-          <p:when test="oai:metadata//datacite-4:resource">
+          <p:when test="oai:record/oai:metadata//datacite-4:resource">
             <p:validate-with-xml-schema>
-              <p:input port="source" select="oai:metadata//datacite-4:resource"/>
+              <p:input port="source" select="oai:record/oai:metadata//datacite-4:resource"/>
               <p:input port="schema">
                 <p:document href="../../resources/schema/datacite4/metadata.xsd"/>
               </p:input>
             </p:validate-with-xml-schema>
+            <p:identity>
+              <p:input port="source">
+                <p:pipe step="validate-source-record" port="source"/>
+              </p:input>
+            </p:identity>
           </p:when>
-          <p:when test="oai:metadata//datacite-3:resource">
+          <p:when test="oai:record/oai:metadata//datacite-3:resource">
             <p:validate-with-xml-schema>
-              <p:input port="source" select="oai:metadata//datacite-3:resource"/>
+              <p:input port="source" select="oai:record/oai:metadata//datacite-3:resource"/>
               <p:input port="schema">
                 <p:document href="../../resources/schema/datacite3/metadata.xsd"/>
               </p:input>
             </p:validate-with-xml-schema>
+            <p:identity>
+              <p:input port="source">
+                <p:pipe step="validate-source-record" port="source"/>
+              </p:input>
+            </p:identity>
           </p:when>
           <p:otherwise>
             <p:identity>
-              <p:input port="source" select="oai:metadata/*"/>
+              <p:input port="source">
+                <p:pipe step="validate-source-record" port="source"/>
+              </p:input>
             </p:identity>
           </p:otherwise>
         </p:choose>
@@ -78,10 +95,11 @@
             <p:pipe port="error" step="invalid"/>
           </p:input>
         </p:identity>
+        <cx:message>
+          <p:with-option name="message" select="concat('Ungültiger Quelldatensatz: ', $recordId)"/>
+        </cx:message>
       </p:catch>
     </p:try>
-
-    <p:wrap match="/*[1]" wrapper="oai:metadata"/>
 
   </p:declare-step>
 
