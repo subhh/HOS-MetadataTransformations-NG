@@ -35,7 +35,7 @@
   <!-- 9. Rechteangaben -->
   <!-- 10. Beschreibungen -->
   <!-- 11. Übergeordnete Ressource -->
-  <xsl:template match="dc:identifier | dc:title | dc:date | dc:publisher | dc:subject | dc:rights | dc:description | dc:relation">
+  <xsl:template match="dc:title | dc:date | dc:publisher | dc:subject | dc:rights | dc:description | dc:relation">
     <xsl:copy>
       <xsl:sequence select="@xml:lang"/>
       <xsl:value-of select="normalize-space()"/>
