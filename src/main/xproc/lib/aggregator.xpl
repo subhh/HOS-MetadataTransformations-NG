@@ -110,6 +110,7 @@
     <p:output port="result" primary="true" sequence="true"/>
 
     <p:variable name="recordId" select="doc/field[@name = 'id']"/>
+    <p:variable name="collection" select="doc/field[@name = 'collection']"/>
 
     <p:validate-with-schematron name="validate" assert-valid="false">
       <p:input port="schema">
@@ -131,7 +132,7 @@
           </p:input>
         </p:identity>
         <cx:message>
-          <p:with-option name="message" select="concat('Ungültiger Solr-Datensatz: ', $recordId)"/>
+          <p:with-option name="message" select="concat('Ungültiger Solr-Datensatz: ', $collection, ' ', $recordId)"/>
         </cx:message>
       </p:when>
       <p:otherwise>
