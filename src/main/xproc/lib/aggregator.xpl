@@ -131,9 +131,9 @@
             <p:pipe step="validate" port="report"/>
           </p:input>
         </p:identity>
-        <cx:message>
-          <p:with-option name="message" select="concat('Ungültiger Solr-Datensatz: ', $collection, ' ', $recordId)"/>
-        </cx:message>
+        <!-- <cx:message> -->
+        <!--   <p:with-option name="message" select="concat('Ungültiger Solr-Datensatz: ', $collection, ' ', $recordId)"/> -->
+        <!-- </cx:message> -->
       </p:when>
       <p:otherwise>
         <p:identity>
