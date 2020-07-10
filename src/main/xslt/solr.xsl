@@ -1,5 +1,6 @@
 <xsl:transform version="3.0"
                expand-text="yes"
+               xmlns:schaufenster="https://id.sub.uni-hamburg.de/ontology/schaufenster#"
                xmlns:aggregator="https://openscience.hamburg.de/vocab/aggregator#"
                xmlns:dc="http://purl.org/dc/elements/1.1/"
                xmlns:dct="http://purl.org/dc/terms/"
@@ -140,9 +141,14 @@
     <field name="description">{.}</field>
   </xsl:template>
 
-  <!-- 11. Übergeordnete Ressource -->
+  <!-- 11. Beziehungen -->
   <xsl:template match="dct:relation">
     <field name="seriesInformation">{rdf:Description/skos:prefLabel}</field>
+  </xsl:template>
+
+  <xsl:template match="schaufenster:IsCitedBy | schaufenster:Cites | schaufenster:IsSupplementTo | schaufenster:IsSupplementedBy | schaufenster:IsContinuedBy | schaufenster:Continues | schaufenster:IsNewVersionOf | schaufenster:IsPreviousVersionOf | schaufenster:IsPartOf | schaufenster:HasPart | schaufenster:IsReferencedBy | schaufenster:References | schaufenster:IsDocumentedBy | schaufenster:Documents | schaufenster:IsCompiledBy | schaufenster:Compiles | schaufenster:IsVariantFormOf | schaufenster:IsOriginalFormOf | schaufenster:IsIdenticalTo | schaufenster:HasMetadata | schaufenster:IsMetadataFor | schaufenster:Reviews | schaufenster:IsReviewedBy | schaufenster:IsDerivedFrom | schaufenster:IsSourceOf">
+    <field name="relatedIdentifier">{dct:BibliograpicResource/dc:identifier}</field>
+    <field name="relatedIdentifierType">{substring-after(dct:BibliograpicResource/dc:identifier/@rdf:datatype, '#')}</field>
   </xsl:template>
 
   <!-- 12. Beiträger -->
