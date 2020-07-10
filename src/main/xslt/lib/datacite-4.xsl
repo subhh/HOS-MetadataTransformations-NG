@@ -115,7 +115,7 @@
     </dc:description>
   </xsl:template>
 
-  <!-- 11. Übergeordnete Ressource -->
+  <!-- 11. Beziehungen -->
   <xsl:template match="datacite-4:description[@descriptionType = 'SeriesInformation']">
     <dct:relation>
       <rdf:Description>

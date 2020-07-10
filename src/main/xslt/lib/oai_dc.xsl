@@ -34,7 +34,7 @@
   <!-- 8. Schlagwörter -->
   <!-- 9. Rechteangaben -->
   <!-- 10. Beschreibungen -->
-  <!-- 11. Übergeordnete Ressource -->
+  <!-- 11. Beziehungen -->
   <xsl:template match="dc:title | dc:date | dc:publisher | dc:subject | dc:rights | dc:description | dc:relation">
     <xsl:copy>
       <xsl:sequence select="@xml:lang"/>
