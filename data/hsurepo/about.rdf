@@ -10,7 +10,7 @@
       <dct:Agent>
         <skos:prefLabel>Helmut-Schmidt-Universität Hamburg</skos:prefLabel>
         <dc:identifier>hsu</dc:identifier>
-        <geo:lat>53.568590</geo:lat>
+        <geo:lat>53.56859</geo:lat>
         <geo:long>10.110153</geo:long>
       </dct:Agent>
     </dct:publisher>
