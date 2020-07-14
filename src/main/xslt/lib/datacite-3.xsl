@@ -1,4 +1,5 @@
 <xsl:transform version="3.0" expand-text="yes"
+               xmlns:schaufenster="https://id.sub.uni-hamburg.de/ontology/schaufenster#"
                xmlns:library="tag:david.maus@sub.uni-hamburg.de,2020:Transform:Library"
                xmlns:dc="http://purl.org/dc/elements/1.1/"
                xmlns:dct="http://purl.org/dc/terms/"
@@ -116,7 +117,7 @@
     </dc:description>
   </xsl:template>
 
-  <!-- 11. Übergeordnete Ressource -->
+  <!-- 11. Beziehungen -->
   <xsl:template match="datacite-3:description[@descriptionType = 'SeriesInformation']">
     <dct:relation>
       <rdf:Description>
@@ -126,6 +127,16 @@
         </skos:prefLabel>
       </rdf:Description>
     </dct:relation>
+  </xsl:template>
+
+  <xsl:template match="datacite-3:relatedIdentifier">
+    <xsl:element name="schaufenster:{@relationType}">
+      <dct:BibliographicResource>
+        <dc:identifier rdf:datatype="{library:datatype(@relatedIdentifierType)}">
+          <xsl:value-of select="normalize-space()"/>
+        </dc:identifier>
+      </dct:BibliographicResource>
+    </xsl:element>
   </xsl:template>
 
   <!-- 12. Beiträger -->
