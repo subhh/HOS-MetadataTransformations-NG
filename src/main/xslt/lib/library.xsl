@@ -1,3 +1,4 @@
+<!DOCTYPE xsl:transform [<!ENTITY datatypeUri "https://openscience.hamburg.de/vocab/datatype#">]>
 <xsl:transform version="3.0" expand-text="yes"
                xmlns:dc="http://purl.org/dc/elements/1.1/"
                xmlns:library="tag:david.maus@sub.uni-hamburg.de,2020:Transform:Library"
@@ -10,12 +11,12 @@
     <xsl:param name="value" as="xs:string" required="yes"/>
     <xsl:choose>
       <xsl:when test="$scheme = 'ORCID'">
-        <dc:identifier rdf:datatype="{library:datatype($scheme)}">
+        <dc:identifier rdf:datatype="&datatypeUri;ORCID">
           <xsl:value-of select="substring(normalize-space($value), string-length($value) - 18)"/>
         </dc:identifier>
       </xsl:when>
       <xsl:otherwise>
-        <dc:identifier rdf:datatype="{library:datatype($scheme)}">
+        <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
           {$value}
         </dc:identifier>
       </xsl:otherwise>
@@ -25,25 +26,30 @@
   <xsl:template name="library:identifier" as="element(dc:identifier)?">
     <xsl:param name="type"  as="xs:string" required="yes"/>
     <xsl:param name="value" as="xs:string" required="yes"/>
-    <dc:identifier rdf:datatype="{library:datatype($type)}">
-      <xsl:value-of select="$value"/>
-    </dc:identifier>
-  </xsl:template>
 
-  <xsl:function name="library:datatype" as="xs:string">
-    <xsl:param name="typeIdentifier" as="xs:string"/>
     <xsl:choose>
-      <xsl:when test="$typeIdentifier = ('DOI', 'GND', 'ORCID')">
-        <xsl:text>https://openscience.hamburg.de/vocab/datatype#{$typeIdentifier}</xsl:text>
+      <xsl:when test="$type = ('DOI', 'URN')">
+        <dc:identifier rdf:datatype="&datatypeUri;{$type}">
+          {$value}
+        </dc:identifier>
       </xsl:when>
-      <xsl:when test="$typeIdentifier = ('PURL', 'URI', 'URL', 'URN')">
-        <xsl:text>http://www.w3.org/2001/XMLSchema#anyURI</xsl:text>
+      <xsl:when test="$type = ('PURL', 'URL')">
+        <xsl:choose>
+          <xsl:when test="matches($value, '^https?://(dx\.|)doi.org/')">
+            <xsl:call-template name="library:identifier">
+              <xsl:with-param name="type"  as="xs:string">DOI</xsl:with-param>
+              <xsl:with-param name="value" as="xs:string" select="substring-after($value, 'doi.org/')"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:otherwise>
+            <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">
+              {$value}
+            </dc:identifier>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
-      <xsl:otherwise>
-        <xsl:text>http://www.w3.org/2001/XMLSchema#string</xsl:text>
-      </xsl:otherwise>
     </xsl:choose>
-  </xsl:function>
+  </xsl:template>
 
   <xsl:function name="library:normalize-language" as="xs:string">
     <xsl:param name="language" as="xs:string?"/>
