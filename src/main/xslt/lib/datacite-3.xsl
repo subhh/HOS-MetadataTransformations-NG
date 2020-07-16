@@ -25,9 +25,10 @@
   </xsl:template>
 
   <xsl:template match="datacite-3:alternateIdentifier">
-    <dc:identifier rdf:datatype="{library:datatype(@alternateIdentifierType)}">
-      <xsl:value-of select="normalize-space()"/>
-    </dc:identifier>
+    <xsl:call-template name="library:identifier">
+      <xsl:with-param name="type" select="@alternateIdentifierType" as="xs:string"/>
+      <xsl:with-param name="value" select="normalize-space()" as="xs:string"/>
+    </xsl:call-template>
   </xsl:template>
 
   <!-- 2. Titel -->
@@ -133,9 +134,10 @@
   <xsl:template match="datacite-3:relatedIdentifier">
     <xsl:element name="schaufenster:{@relationType}">
       <dct:BibliographicResource>
-        <dc:identifier rdf:datatype="{library:datatype(@relatedIdentifierType)}">
-          <xsl:value-of select="normalize-space()"/>
-        </dc:identifier>
+        <xsl:call-template name="library:identifier">
+          <xsl:with-param name="type" select="@relatedIdentifierType" as="xs:string"/>
+          <xsl:with-param name="value" select="normalize-space()" as="xs:string"/>
+        </xsl:call-template>
       </dct:BibliographicResource>
     </xsl:element>
   </xsl:template>
