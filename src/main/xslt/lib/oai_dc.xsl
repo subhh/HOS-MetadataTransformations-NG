@@ -17,15 +17,10 @@
 
   <!-- 1. Identifikatoren -->
   <xsl:template match="dc:identifier[matches(normalize-space(.), 'https?')]">
-    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">
-      <xsl:value-of select="normalize-space()"/>
-    </dc:identifier>
-  </xsl:template>
-
-  <xsl:template match="dc:identifier[matches(normalize-space(.), 'https?://doi.org')]" priority="5">
-    <dc:identifier rdf:datatype="https://openscience.hamburg.de/vocab/datatype#DOI">
-      <xsl:value-of select="substring-after(normalize-space(), 'doi.org/')"/>
-    </dc:identifier>
+    <xsl:call-template name="library:identifier">
+      <xsl:with-param name="type" as="xs:string">URL</xsl:with-param>
+      <xsl:with-param name="value" as="xs:string" select="normalize-space()"/>
+    </xsl:call-template>
   </xsl:template>
   
   <!-- 2. Titel -->

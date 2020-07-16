@@ -49,8 +49,8 @@
           <xsl:value-of select="normalize-space(datacite-4:creatorName)"/>
         </skos:prefLabel>
         <xsl:for-each select="datacite-4:nameIdentifier">
-          <xsl:call-template name="library:nameIdentifier">
-            <xsl:with-param name="scheme" select="@nameIdentifierScheme" as="xs:string"/>
+          <xsl:call-template name="library:identifier">
+            <xsl:with-param name="type" select="@nameIdentifierScheme" as="xs:string"/>
             <xsl:with-param name="value" select="normalize-space()" as="xs:string"/>
           </xsl:call-template>
         </xsl:for-each>
@@ -149,8 +149,8 @@
           <xsl:value-of select="normalize-space(datacite-4:contributorName)"/>
         </skos:prefLabel>
         <xsl:for-each select="datacite-4:nameIdentifier">
-          <xsl:call-template name="library:nameIdentifier">
-            <xsl:with-param name="scheme" select="@nameIdentifierScheme" as="xs:string"/>
+          <xsl:call-template name="library:identifier">
+            <xsl:with-param name="type" select="@nameIdentifierScheme" as="xs:string"/>
             <xsl:with-param name="value" select="normalize-space()" as="xs:string"/>
           </xsl:call-template>
         </xsl:for-each>

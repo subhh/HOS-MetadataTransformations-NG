@@ -6,28 +6,17 @@
                xmlns:xs="http://www.w3.org/2001/XMLSchema"
                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:template name="library:nameIdentifier" as="element(dc:identifier)?">
-    <xsl:param name="scheme" as="xs:string" required="yes"/>
-    <xsl:param name="value" as="xs:string" required="yes"/>
-    <xsl:choose>
-      <xsl:when test="$scheme = 'ORCID'">
-        <dc:identifier rdf:datatype="&datatypeUri;ORCID">
-          <xsl:value-of select="substring(normalize-space($value), string-length($value) - 18)"/>
-        </dc:identifier>
-      </xsl:when>
-      <xsl:otherwise>
-        <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-          {$value}
-        </dc:identifier>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
   <xsl:template name="library:identifier" as="element(dc:identifier)?">
     <xsl:param name="type"  as="xs:string" required="yes"/>
     <xsl:param name="value" as="xs:string" required="yes"/>
 
     <xsl:choose>
+      <xsl:when test="$type = 'ORCID'">
+        <dc:identifier rdf:datatype="&datatypeUri;ORCID">
+          <xsl:value-of select="substring(normalize-space($value), string-length($value) - 18)"/>
+        </dc:identifier>
+      </xsl:when>
+
       <xsl:when test="$type = ('DOI', 'URN')">
         <dc:identifier rdf:datatype="&datatypeUri;{$type}">
           {$value}
@@ -48,6 +37,11 @@
           </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
+      <xsl:otherwise>
+        <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+          {$value}
+        </dc:identifier>
+      </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 
