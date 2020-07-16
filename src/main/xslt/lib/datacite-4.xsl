@@ -17,9 +17,10 @@
 
   <!-- 1. Identifikatoren -->
   <xsl:template match="datacite-4:identifier">
-    <dc:identifier rdf:datatype="{library:datatype(@identifierType)}">
-      <xsl:value-of select="normalize-space()"/>
-    </dc:identifier>
+    <xsl:call-template name="library:identifier">
+      <xsl:with-param name="type" select="@identifierType" as="xs:string"/>
+      <xsl:with-param name="value" select="normalize-space()" as="xs:string"/>
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="datacite-4:alternateIdentifier">

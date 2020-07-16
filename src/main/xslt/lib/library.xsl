@@ -22,6 +22,14 @@
     </xsl:choose>
   </xsl:template>
 
+  <xsl:template name="library:identifier" as="element(dc:identifier)?">
+    <xsl:param name="type"  as="xs:string" required="yes"/>
+    <xsl:param name="value" as="xs:string" required="yes"/>
+    <dc:identifier rdf:datatype="{library:datatype($type)}">
+      <xsl:value-of select="$value"/>
+    </dc:identifier>
+  </xsl:template>
+
   <xsl:function name="library:datatype" as="xs:string">
     <xsl:param name="typeIdentifier" as="xs:string"/>
     <xsl:choose>
