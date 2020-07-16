@@ -57,7 +57,7 @@
   <xsl:template match="aggregator:isProvidedBy/aggregator:Record">
     <!-- Im späteren Verlauf wird das Feld 'id' durch die MD5-Prüfsumme des Identifiers ersetzt -->
     <field name="id">{normalize-space(dc:identifier)}</field>
-    <field name="sourceIdentifier">{normalize-space(dc:identifier)}</field>
+    <field name="internal_source_id">{normalize-space(dc:identifier)}</field>
     <field name="collection">{normalize-space(dct:isPartOf/aggregator:Collection/skos:prefLabel)}</field>
     <field name="internal_institution">{normalize-space(dct:isPartOf/aggregator:Collection/dct:publisher/dct:Agent/skos:prefLabel)}</field>
     <field name="internal_institution_id">{normalize-space(dct:isPartOf/aggregator:Collection/dct:publisher/dct:Agent/dc:identifier)}</field>
