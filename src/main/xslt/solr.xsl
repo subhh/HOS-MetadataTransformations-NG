@@ -33,7 +33,7 @@
         </xsl:when>
         <xsl:when test="dc:identifier[@rdf:datatype = 'http://www.w3.org/2001/XMLSchema#anyURI']">
           <field name="url">
-            <xsl:value-of select="dc:identifier[@rdf:datatype = 'http://www.w3.org/2001/XMLSchema#anyURI'][1]"/>
+            <xsl:value-of select="normalize-space(dc:identifier[@rdf:datatype = 'http://www.w3.org/2001/XMLSchema#anyURI'][1])"/>
           </field>
         </xsl:when>
         <xsl:when test="dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#PPN']">
