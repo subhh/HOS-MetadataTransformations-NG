@@ -28,7 +28,7 @@
             <xsl:value-of select="dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#DOI'][1]"/>
           </field>
           <field name="url">
-            <xsl:value-of select="'https://doi.org/' || dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#DOI'][1]"/>
+            <xsl:value-of select="'https://doi.org/' || normalize-space(dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#DOI'][1])"/>
           </field>
         </xsl:when>
         <xsl:when test="dc:identifier[@rdf:datatype = 'http://www.w3.org/2001/XMLSchema#anyURI']">
