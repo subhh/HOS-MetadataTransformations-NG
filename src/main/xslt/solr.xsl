@@ -144,7 +144,7 @@
   </xsl:template>
 
   <!-- 11. Beziehungen -->
-  <xsl:template match="dct:relation">
+  <xsl:template match="dc:relation">
     <field name="seriesInformation">{rdf:Description/skos:prefLabel}</field>
   </xsl:template>
 

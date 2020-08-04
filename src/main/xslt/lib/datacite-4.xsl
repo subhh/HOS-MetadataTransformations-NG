@@ -120,14 +120,10 @@
 
   <!-- 11. Beziehungen -->
   <xsl:template match="datacite-4:description[@descriptionType = 'SeriesInformation']">
-    <dct:relation>
-      <rdf:Description>
-        <skos:prefLabel>
-          <xsl:sequence select="@xml:lang"/>
-          <xsl:value-of select="normalize-space()"/>
-        </skos:prefLabel>
-      </rdf:Description>
-    </dct:relation>
+    <dc:relation>
+      <xsl:sequence select="@xml:lang"/>
+      <xsl:value-of select="normalize-space()"/>
+    </dc:relation>
   </xsl:template>
 
   <xsl:template match="datacite-4:relatedIdentifier">
