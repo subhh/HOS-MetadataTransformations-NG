@@ -8,7 +8,7 @@
     <skos:prefLabel>HWWI EPflicht</skos:prefLabel>
     <dct:publisher>
       <dct:Agent>
-        <skos:prefLabel>Weitere Datenquellen</skos:prefLabel>
+        <skos:prefLabel>Weitere Einrichtungen</skos:prefLabel>
         <dc:identifier>misc</dc:identifier>
         <geo:lat>53.5458792</geo:lat>
         <geo:long>10.0056495</geo:long>
