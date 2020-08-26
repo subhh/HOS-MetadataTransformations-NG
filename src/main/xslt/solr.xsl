@@ -65,7 +65,7 @@
       <xsl:value-of select="(dct:isPartOf/aggregator:Collection/dct:publisher/dct:Agent/geo:lat, dct:isPartOf/aggregator:Collection/dct:publisher/dct:Agent/geo:long)" separator=","/>
     </field>
     <xsl:for-each select="dc:subject">
-      <field name="collection_set">{.}</field>
+      <field name="collection_set"><xsl:value-of select="normalize-space()"/></field>
     </xsl:for-each>
   </xsl:template>
 
@@ -76,13 +76,13 @@
 
   <!-- 1. Identifikatoren -->
   <xsl:template match="dc:identifier">
-    <field name="alternateIdentifier">{.}</field>
+    <field name="alternateIdentifier"><xsl:value-of select="normalize-space()"/></field>
     <field name="alternateIdentifierType">{substring-after(@rdf:datatype, '#')}</field>
   </xsl:template>
 
   <!-- 2. Titel -->
   <xsl:template match="dc:title">
-    <field name="title">{.}</field>
+    <field name="title"><xsl:value-of select="normalize-space()"/></field>
     <field name="titleLang">{@xml:lang}</field>
   </xsl:template>
 
@@ -108,12 +108,12 @@
 
   <!-- 5. Publisher -->
   <xsl:template match="dc:publisher[1]">
-    <field name="publisher">{.}</field>
+    <field name="publisher"><xsl:value-of select="normalize-space()"/></field>
   </xsl:template>
 
   <!-- 6. Materialart -->
   <xsl:template match="dc:type[not(preceding-sibling::dc:type)]">
-    <field name="resourceType">{.}</field>
+    <field name="resourceType"><xsl:value-of select="normalize-space()"/></field>
   </xsl:template>
 
   <!-- 7. Sprache -->
@@ -123,24 +123,24 @@
         <field name="language">mul</field>
       </xsl:when>
       <xsl:otherwise>
-        <field name="language">{.}</field>
+        <field name="language"><xsl:value-of select="normalize-space()"/></field>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 
   <!-- 8. Schlagwörter -->
   <xsl:template match="dc:subject">
-    <field name="subject">{.}</field>
+    <field name="subject"><xsl:value-of select="normalize-space()"/></field>
   </xsl:template>
 
   <!-- 9. Rechteangaben -->
   <xsl:template match="dc:rights">
-    <field name="rights">{.}</field>
+    <field name="rights"><xsl:value-of select="normalize-space()"/></field>
   </xsl:template>
 
   <!-- 10. Beschreibungen -->
   <xsl:template match="dc:description">
-    <field name="description">{.}</field>
+    <field name="description"><xsl:value-of select="normalize-space()"/></field>
   </xsl:template>
 
   <!-- 11. Beziehungen -->
