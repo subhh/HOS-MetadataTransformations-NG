@@ -50,6 +50,9 @@
           <field name="rightsOA">zugriffsbeschränkt</field>
         </xsl:otherwise>
       </xsl:choose>
+      <field name="internal_qualifikationsarbeit">
+        <xsl:value-of select="if (matches(string-join(dc:type), '(Bachelor | Master)')) then '1' else '0'"/>
+      </field>
       <xsl:apply-templates/>
     </doc>
   </xsl:template>
@@ -157,13 +160,6 @@
   <!-- 12. Beiträger -->
   <xsl:template match="dct:contributor">
     <field name="contributorName">{dct:Agent/skos:prefLabel}</field>
-  </xsl:template>
-
-  <!-- 13. Qualifkationsarbeit? -->
-  <xsl:template match="dc:type">
-    <field name="internal_qualifikationsarbeit">
-      <xsl:value-of select="if (matches(., '(Bachelor | Master)')) then '1' else '0'"/>
-    </field>
   </xsl:template>
 
 </xsl:transform>
