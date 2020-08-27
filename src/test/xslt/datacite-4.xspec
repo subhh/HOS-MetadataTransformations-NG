@@ -1,0 +1,20 @@
+<description xmlns="http://www.jenitennison.com/xslt/xspec"
+             xmlns:datacite-4="http://datacite.org/schema/kernel-4"
+             xmlns:dct="http://purl.org/dc/terms/"
+             xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+             stylesheet="../../main/xslt/lift.xsl">
+
+  <scenario label="The general resource type">
+    <context>
+      <datacite-4:resourceType resourceTypeGeneral="Text"/>
+    </context>
+    <expect label="is represented as notation of a SKOS concept">
+      <dct:type>
+        <skos:Concept>
+          <skos:notation>Text</skos:notation>
+        </skos:Concept>
+      </dct:type>
+    </expect>
+  </scenario>
+
+</description>

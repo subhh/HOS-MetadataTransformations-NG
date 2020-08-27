@@ -76,11 +76,13 @@
 
   <!-- 6. Materialart -->
   <xsl:template match="datacite-3:resourceType[@resourceTypeGeneral]">
-    <xsl:where-populated>
-      <dc:type>
-        <xsl:value-of select="@resourceTypeGeneral"/>
-      </dc:type>
-    </xsl:where-populated>
+    <dct:type>
+      <skos:Concept>
+        <skos:notation>
+          <xsl:value-of select="@resourceTypeGeneral"/>
+        </skos:notation>
+      </skos:Concept>
+    </dct:type>
   </xsl:template>
 
   <!-- 7. Sprache -->

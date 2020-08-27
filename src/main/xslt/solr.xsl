@@ -112,8 +112,8 @@
   </xsl:template>
 
   <!-- 6. Materialart -->
-  <xsl:template match="dc:type[not(preceding-sibling::dc:type)]">
-    <field name="resourceType"><xsl:value-of select="normalize-space()"/></field>
+  <xsl:template match="dct:type[not(preceding-sibling::dct:type)]">
+    <field name="resourceType"><xsl:value-of select="normalize-space(skos:Concept/skos:notation)"/></field>
   </xsl:template>
 
   <!-- 7. Sprache -->

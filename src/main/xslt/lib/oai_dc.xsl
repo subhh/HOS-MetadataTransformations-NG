@@ -11,7 +11,11 @@
   <xsl:template match="oai_dc:dc">
     <dct:BibliographicResource>
       <xsl:apply-templates/>
-      <dc:type>Text</dc:type>
+      <dct:type>
+        <skos:Concept>
+          <skos:notation>Text</skos:notation>
+        </skos:Concept>
+      </dct:type>
     </dct:BibliographicResource>
   </xsl:template>
 
@@ -22,7 +26,7 @@
       <xsl:with-param name="value" as="xs:string" select="normalize-space()"/>
     </xsl:call-template>
   </xsl:template>
-  
+
   <!-- 2. Titel -->
   <!-- 4. Datum -->
   <!-- 5. Publisher -->
