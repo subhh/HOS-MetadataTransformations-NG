@@ -75,6 +75,11 @@
 
   <!-- 6. Materialart -->
   <xsl:template match="datacite-4:resourceType[@resourceTypeGeneral]">
+    <xsl:where-populated>
+      <dc:type>
+        <xsl:value-of select="normalize-space()"/>
+      </dc:type>
+    </xsl:where-populated>
     <dct:type>
       <skos:Concept>
         <skos:prefLabel>

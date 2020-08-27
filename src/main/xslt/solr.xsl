@@ -159,4 +159,11 @@
     <field name="contributorName">{dct:Agent/skos:prefLabel}</field>
   </xsl:template>
 
+  <!-- 13. Qualifkationsarbeit? -->
+  <xsl:template match="dc:type">
+    <field name="internal_qualifikationsarbeit">
+      <xsl:value-of select="if (matches(., '(Bachelor | Master)')) then '1' else '0'"/>
+    </field>
+  </xsl:template>
+
 </xsl:transform>

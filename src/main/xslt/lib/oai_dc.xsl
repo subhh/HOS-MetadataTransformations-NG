@@ -30,11 +30,12 @@
   <!-- 2. Titel -->
   <!-- 4. Datum -->
   <!-- 5. Publisher -->
+  <!-- 6. Materialart -->
   <!-- 8. Schlagwörter -->
   <!-- 9. Rechteangaben -->
   <!-- 10. Beschreibungen -->
   <!-- 11. Beziehungen -->
-  <xsl:template match="dc:title | dc:date | dc:publisher | dc:subject | dc:rights | dc:description | dc:relation">
+  <xsl:template match="dc:title | dc:date | dc:publisher | dc:type | dc:subject | dc:rights | dc:description | dc:relation">
     <xsl:copy>
       <xsl:sequence select="@xml:lang"/>
       <xsl:value-of select="normalize-space()"/>
@@ -52,9 +53,6 @@
       </dct:Agent>
     </xsl:element>
   </xsl:template>
-
-  <!-- 6. Materialart -->
-  <xsl:template match="dc:type"/>
 
   <!-- 7. Sprache -->
   <xsl:template match="dc:language">
