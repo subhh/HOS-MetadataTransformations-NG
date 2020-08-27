@@ -77,9 +77,9 @@
   <xsl:template match="datacite-4:resourceType[@resourceTypeGeneral]">
     <dct:type>
       <skos:Concept>
-        <skos:notation>
+        <skos:prefLabel>
           <xsl:value-of select="@resourceTypeGeneral"/>
-        </skos:notation>
+        </skos:prefLabel>
       </skos:Concept>
     </dct:type>
   </xsl:template>

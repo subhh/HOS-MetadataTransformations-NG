@@ -13,7 +13,7 @@
       <xsl:apply-templates/>
       <dct:type>
         <skos:Concept>
-          <skos:notation>Text</skos:notation>
+          <skos:prefLabel>Text</skos:prefLabel>
         </skos:Concept>
       </dct:type>
     </dct:BibliographicResource>

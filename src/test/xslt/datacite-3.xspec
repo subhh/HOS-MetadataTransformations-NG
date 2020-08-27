@@ -8,10 +8,11 @@
     <context>
       <datacite-3:resourceType resourceTypeGeneral="Text"/>
     </context>
-    <expect label="is represented as notation of a SKOS concept">
+    <expect label="is represented as a SKOS concept">
       <dct:type>
         <skos:Concept>
           <skos:notation>Text</skos:notation>
+          <skos:prefLabel>Text</skos:prefLabel>
         </skos:Concept>
       </dct:type>
     </expect>
