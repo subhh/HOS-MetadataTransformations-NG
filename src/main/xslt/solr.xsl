@@ -21,6 +21,7 @@
 
   <xsl:template match="dct:BibliographicResource">
     <xsl:variable name="rights" select="lower-case(string-join(dc:rights))"/>
+    <xsl:variable name="types" select="lower-case(string-join(dc:type))"/>
     <doc>
       <xsl:choose>
         <xsl:when test="dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#DOI']">
@@ -51,7 +52,7 @@
         </xsl:otherwise>
       </xsl:choose>
       <field name="internal_qualifikationsarbeit">
-        <xsl:value-of select="if (matches(string-join(dc:type), '(Bachelor | Master)')) then '1' else '0'"/>
+        <xsl:value-of select="if (matches($types, 'bachelor|master')) then '1' else '0'"/>
       </field>
       <xsl:apply-templates/>
     </doc>
