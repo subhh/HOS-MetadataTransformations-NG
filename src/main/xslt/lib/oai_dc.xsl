@@ -27,6 +27,14 @@
     </xsl:call-template>
   </xsl:template>
 
+  <xsl:template match="dc:identifier[matches(normalize-space(.), '^www\.fis\.uni-hamburg\.de')]">
+    <xsl:call-template name="library:identifier">
+      <xsl:with-param name="type" as="xs:string">URL</xsl:with-param>
+      <xsl:with-param name="value" as="xs:string"
+                      select="concat('https://', normalize-space())"/>
+    </xsl:call-template>
+  </xsl:template>
+
   <!-- 2. Titel -->
   <!-- 4. Datum -->
   <!-- 5. Publisher -->
