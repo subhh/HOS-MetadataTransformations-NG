@@ -19,7 +19,7 @@
 
       <xsl:when test="$type = ('DOI', 'URN')">
         <dc:identifier rdf:datatype="&datatypeUri;{$type}">
-          {$value}
+          <xsl:value-of select="normalize-space($value)"/>
         </dc:identifier>
       </xsl:when>
       <xsl:when test="$type = ('PURL', 'URL')">
@@ -32,14 +32,14 @@
           </xsl:when>
           <xsl:otherwise>
             <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">
-              {$value}
+              <xsl:value-of select="normalize-space($value)"/>
             </dc:identifier>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
         <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-          {$value}
+          <xsl:value-of select="normalize-space($value)"/>
         </dc:identifier>
       </xsl:otherwise>
     </xsl:choose>
