@@ -69,9 +69,6 @@
     <field name="internal_geoLocation">
       <xsl:value-of select="(dct:isPartOf/aggregator:Collection/dct:publisher/dct:Agent/geo:lat, dct:isPartOf/aggregator:Collection/dct:publisher/dct:Agent/geo:long)" separator=","/>
     </field>
-    <xsl:for-each select="dc:subject">
-      <field name="collection_set"><xsl:value-of select="normalize-space()"/></field>
-    </xsl:for-each>
   </xsl:template>
 
   <xsl:template match="dct:source/rdf:Description/dct:publisher/dct:Agent/skos:prefLabel">
