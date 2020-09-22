@@ -44,7 +44,8 @@
         </xsl:when>
       </xsl:choose>
       <xsl:choose>
-        <xsl:when test="matches($rights, 'open|kostenfrei|uhh-l2g|sub.uni-hamburg.de|creativecommons|creative commons|CC|opensource')">
+        <xsl:when test="matches($rights, 'open|kostenfrei|uhh-l2g|sub.uni-hamburg.de|creativecommons|creative commons|CC|opensource')
+                        and not(contains($rights, 'embargo'))">
           <field name="rightsOA">Open Access</field>
         </xsl:when>
         <xsl:otherwise>
