@@ -24,7 +24,7 @@
       </xsl:when>
       <xsl:when test="$type = ('PURL', 'URL')">
         <xsl:choose>
-          <xsl:when test="matches($value, '^https?://(dx\.|)doi.org/')">
+          <xsl:when test="matches($value, '^https?://(dx\.|)doi.org/10')">
             <xsl:call-template name="library:identifier">
               <xsl:with-param name="type"  as="xs:string">DOI</xsl:with-param>
               <xsl:with-param name="value" as="xs:string" select="substring-after($value, 'doi.org/')"/>
