@@ -28,7 +28,7 @@
           <xsl:value-of select="normalize-space()"/>
         </field>
         <field name="identifierType">
-          <xsl:value-of select="substring-before(@rdf:datatype, '#')"/>
+          <xsl:value-of select="substring-after(@rdf:datatype, '#')"/>
         </field>
         <xsl:choose>
           <xsl:when test="@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#DOI'">
