@@ -23,26 +23,31 @@
     <xsl:variable name="rights" select="lower-case(string-join(dc:rights))"/>
     <xsl:variable name="types" select="lower-case(string-join(dc:type))"/>
     <doc>
-      <xsl:choose>
-        <xsl:when test="dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#DOI']">
-          <field name="identifier">
-            <xsl:value-of select="dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#DOI'][1]"/>
-          </field>
-          <field name="url">
-            <xsl:value-of select="'https://doi.org/' || normalize-space(dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#DOI'][1])"/>
-          </field>
-        </xsl:when>
-        <xsl:when test="dc:identifier[@rdf:datatype = 'http://www.w3.org/2001/XMLSchema#anyURI']">
-          <field name="url">
-            <xsl:value-of select="normalize-space(dc:identifier[@rdf:datatype = 'http://www.w3.org/2001/XMLSchema#anyURI'][1])"/>
-          </field>
-        </xsl:when>
-        <xsl:when test="dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#PPN']">
-          <field name="url">
-            <xsl:text>https://kxp.k10plus.de/DB=2.1/PPN?PPN={dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#PPN'][1]}</xsl:text>
-          </field>
-        </xsl:when>
-      </xsl:choose>
+      <xsl:for-each select="dc:identifier[1]">
+        <field name="identifier">
+          <xsl:value-of select="normalize-space()"/>
+        </field>
+        <field name="identifierType">
+          <xsl:value-of select="substring-before(@rdf:datatype, '#')"/>
+        </field>
+        <xsl:choose>
+          <xsl:when test="@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#DOI'">
+            <field name="url">
+              <xsl:value-of select="'https://doi.org/' || normalize-space()"/>
+            </field>
+          </xsl:when>
+          <xsl:when test="@rdf:datatype = 'http://www.w3.org/2001/XMLSchema#anyURI'">
+            <field name="url">
+              <xsl:value-of select="normalize-space()"/>
+            </field>
+          </xsl:when>
+          <xsl:when test="@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#PPN'">
+            <field name="url">
+              <xsl:text>https://kxp.k10plus.de/DB=2.1/PPN?PPN={normalize-space()}</xsl:text>
+            </field>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:for-each>
       <xsl:choose>
         <xsl:when test="matches($rights, 'open|kostenfrei|uhh-l2g|sub.uni-hamburg.de|creativecommons|creative commons|CC|opensource')
                         and not(contains($rights, 'embargo'))">
