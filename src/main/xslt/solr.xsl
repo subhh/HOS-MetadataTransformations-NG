@@ -95,7 +95,7 @@
       <field name="creatorNameURI">
         <xsl:choose>
           <xsl:when test="dct:Agent/dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#ORCID']">
-            <xsl:value-of select="'http://orcid.org/' || dct:Agent/dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#ORCID']"/>
+            <xsl:value-of select="'https://orcid.org/' || dct:Agent/dc:identifier[@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#ORCID']"/>
           </xsl:when>
           <xsl:otherwise>-</xsl:otherwise>
         </xsl:choose>
