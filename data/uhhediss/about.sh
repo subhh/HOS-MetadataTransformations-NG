@@ -1,3 +1,3 @@
-baseUrl=http://ediss.sub.uni-hamburg.de/oai2/oai2.php
+baseUrl=https://ediss.sub.uni-hamburg.de/oai/request
 format=oai_dc
 set=
