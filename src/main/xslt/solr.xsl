@@ -49,7 +49,7 @@
         </xsl:choose>
       </xsl:for-each>
       <xsl:choose>
-        <xsl:when test="matches($rights, 'open|kostenfrei|uhh-l2g|sub.uni-hamburg.de|creativecommons|creative commons|cc|opensource')
+        <xsl:when test="matches($rights, 'open|kostenfrei|uhh-l2g|sub.uni-hamburg.de|creativecommons|creative commons|cc-by|cc-0|cc by|cc 0|opensource')
                         and not(contains($rights, 'embargo'))">
           <field name="rightsOA">Open Access</field>
         </xsl:when>
