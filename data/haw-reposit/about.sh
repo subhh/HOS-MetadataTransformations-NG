@@ -1,3 +1,3 @@
 baseUrl=https://reposit.haw-hamburg.de/oai/request
-format=oai_datacite
+format=oai_dc
 set=
