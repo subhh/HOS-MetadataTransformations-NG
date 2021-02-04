@@ -17,7 +17,7 @@
         </dc:identifier>
       </xsl:when>
 
-      <xsl:when test="$type = ('DOI', 'URN')">
+      <xsl:when test="$type = ('DOI', 'URN', 'Handle')">
         <dc:identifier rdf:datatype="&datatypeUri;{$type}">
           <xsl:value-of select="normalize-space($value)"/>
         </dc:identifier>

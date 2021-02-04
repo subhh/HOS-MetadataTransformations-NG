@@ -36,6 +36,11 @@
               <xsl:value-of select="'https://doi.org/' || normalize-space()"/>
             </field>
           </xsl:when>
+          <xsl:when test="@rdf:datatype = 'https://openscience.hamburg.de/vocab/datatype#Handle'">
+            <field name="url">
+              <xsl:value-of select="'https://hdl.handle.net/' || normalize-space()"/>
+            </field>
+          </xsl:when>
           <xsl:when test="@rdf:datatype = 'http://www.w3.org/2001/XMLSchema#anyURI'">
             <field name="url">
               <xsl:value-of select="normalize-space()"/>
