@@ -23,6 +23,13 @@
         <p:empty/>
       </p:input>
     </p:xslt>
+
+    <p:add-attribute match="datacite-4:*[@resourceTypeGeneral][not(@resourceTypeGeneral = ('Audiovisual', 'Collection', 'DataPaper', 'Dataset', 'Event', 'Image', 'InteractiveResource', 'Model', 'PhysicalObject', 'Service', 'Software', 'Sound', 'Text', 'Workflow', 'Other'))]"
+                     attribute-name="resourceTypeGeneral"
+                     attribute-value="Text"/>
+    <p:add-attribute match="datacite-3:*[@resourceTypeGeneral][not(@resourceTypeGeneral = ('Audiovisual', 'Collection', 'DataPaper', 'Dataset', 'Event', 'Image', 'InteractiveResource', 'Model', 'PhysicalObject', 'Service', 'Software', 'Sound', 'Text', 'Workflow', 'Other'))]"
+                     attribute-name="resourceTypeGeneral"
+                     attribute-value="Text"/>
   </p:declare-step>
 
   <p:declare-step type="library:validate-source">
@@ -49,13 +56,6 @@
     <p:output port="result" primary="true" sequence="true"/>
 
     <p:variable name="recordId" select="oai:record/oai:header/oai:identifier"/>
-
-    <p:add-attribute match="datacite-4:*[@resourceTypeGeneral][not(@resourceTypeGeneral = ('Audiovisual', 'Collection', 'DataPaper', 'Dataset', 'Event', 'Image', 'InteractiveResource', 'Model', 'PhysicalObject', 'Service', 'Software', 'Sound', 'Text', 'Workflow', 'Other'))]"
-                     attribute-name="resourceTypeGeneral"
-                     attribute-value="Text"/>
-    <p:add-attribute match="datacite-3:*[@resourceTypeGeneral][not(@resourceTypeGeneral = ('Audiovisual', 'Collection', 'DataPaper', 'Dataset', 'Event', 'Image', 'InteractiveResource', 'Model', 'PhysicalObject', 'Service', 'Software', 'Sound', 'Text', 'Workflow', 'Other'))]"
-                     attribute-name="resourceTypeGeneral"
-                     attribute-value="Text"/>
 
     <p:try>
       <p:group>
