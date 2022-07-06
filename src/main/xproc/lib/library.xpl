@@ -50,6 +50,13 @@
 
     <p:variable name="recordId" select="oai:record/oai:header/oai:identifier"/>
 
+    <p:add-attribute match="datacite-4:*[@resourceTypeGeneral][not(@resourceTypeGeneral = ('Audiovisual', 'Collection', 'DataPaper', 'Dataset', 'Event', 'Image', 'InteractiveResource', 'Model', 'PhysicalObject', 'Service', 'Software', 'Sound', 'Text', 'Workflow', 'Other'))]"
+                     attribute-name="resourceTypeGeneral"
+                     attribute-value="Text"/>
+    <p:add-attribute match="datacite-3:*[@resourceTypeGeneral][not(@resourceTypeGeneral = ('Audiovisual', 'Collection', 'DataPaper', 'Dataset', 'Event', 'Image', 'InteractiveResource', 'Model', 'PhysicalObject', 'Service', 'Software', 'Sound', 'Text', 'Workflow', 'Other'))]"
+                     attribute-name="resourceTypeGeneral"
+                     attribute-value="Text"/>
+
     <p:try>
       <p:group>
         <p:choose>
