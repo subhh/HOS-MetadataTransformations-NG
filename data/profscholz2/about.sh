@@ -1,3 +1,3 @@
 baseUrl=https://zenodo.org/oai2d
-format=oai_datacite
+format=oai_datacite4
 set=user-profscholz
