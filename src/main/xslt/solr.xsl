@@ -23,7 +23,7 @@
     <xsl:variable name="rights" select="lower-case(string-join(dc:rights))"/>
     <xsl:variable name="types" select="lower-case(string-join(dc:type))"/>
     <doc>
-      <xsl:for-each select="dc:identifier[1]">
+      <xsl:for-each select="(dc:identifier[@rdf:datatype eq 'https://openscience.hamburg.de/vocab/datatype#DOI'], dc:identifier[@rdf:datatype ne 'https://openscience.hamburg.de/vocab/datatype#DOI'])[1]">
         <field name="identifier">
           <xsl:value-of select="normalize-space()"/>
         </field>
