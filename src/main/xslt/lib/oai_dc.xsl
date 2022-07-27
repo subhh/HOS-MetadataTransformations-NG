@@ -20,7 +20,7 @@
   </xsl:template>
 
   <!-- 1. Identifikatoren -->
-  <xsl:template match="dc:identifier[matches(normalize-space(.), 'https?')]">
+  <xsl:template match="dc:identifier[matches(normalize-space(.), '^https?')]">
     <xsl:call-template name="library:identifier">
       <xsl:with-param name="type" as="xs:string">URL</xsl:with-param>
       <xsl:with-param name="value" as="xs:string" select="normalize-space()"/>
