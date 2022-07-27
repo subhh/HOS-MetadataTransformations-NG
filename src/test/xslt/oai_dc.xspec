@@ -1,0 +1,15 @@
+<description xmlns="http://www.jenitennison.com/xslt/xspec"
+             xmlns:dc="http://purl.org/dc/elements/1.1/"
+             xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             stylesheet="../../main/xslt/lift.xsl">
+
+  <scenario label="An old identifier from the UHH FIS repository">
+    <context>
+      <dc:identifier>www.fis.uni-hamburg.de/de/publications/formation-of-spontaneous-densitywave-patterns-in-dc-driven-lattices(d3237485-dd20-4cc9-916e-3b597541d477).html</dc:identifier>
+    </context>
+    <expect label="is rewritten to the new target address"
+            test="normalize-space() = 'https://www.fis.uni-hamburg.de/publikationen/detail.html?id=d3237485-dd20-4cc9-916e-3b597541d477'">
+    </expect>
+  </scenario>
+
+</description>
