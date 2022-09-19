@@ -27,9 +27,9 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template match="dc:identifier[matches(normalize-space(.), '^www\.fis\.uni-hamburg\.de/[^\(]+\([^)]+\).html')]">
+  <xsl:template match="dc:identifier[matches(normalize-space(.), '^https://www\.pod\.uni-hamburg\.de/[^\(]+\([^)]+\).html')]" priority="10">
     <xsl:variable name="id" as="xs:string"
-                  select="replace(normalize-space(), '^www\.fis\.uni-hamburg\.de/[^\(]+\(([^)]+)\).html', '$1')"/>
+                  select="replace(normalize-space(), '^https://www\.pod\.uni-hamburg\.de/[^\(]+\(([^)]+)\).html', '$1')"/>
     <xsl:call-template name="library:identifier">
       <xsl:with-param name="type" as="xs:string">URL</xsl:with-param>
       <xsl:with-param name="value" as="xs:string"
