@@ -5,10 +5,10 @@
 
   <scenario label="An old identifier from the UHH FIS repository">
     <context>
-      <dc:identifier>www.fis.uni-hamburg.de/de/publications/formation-of-spontaneous-densitywave-patterns-in-dc-driven-lattices(d3237485-dd20-4cc9-916e-3b597541d477).html</dc:identifier>
+      <dc:identifier>https://www.pod.uni-hamburg.de/detail/de/publications/towards-a-modelbased-and-variantoriented-development-of-a-system-of-systems(bb5a77d7-38ee-4aab-8a0f-2cc56913eab7).html</dc:identifier>
     </context>
     <expect label="is rewritten to the new target address"
-            test="normalize-space() = 'https://www.fis.uni-hamburg.de/publikationen/detail.html?id=d3237485-dd20-4cc9-916e-3b597541d477'">
+            test="normalize-space() = 'https://www.fis.uni-hamburg.de/publikationen/detail.html?id=bb5a77d7-38ee-4aab-8a0f-2cc56913eab7'">
     </expect>
   </scenario>
 
