@@ -1,3 +1,3 @@
-baseUrl=http://c3grid1.dkrz.de:8080/oai/provider
+baseUrl=https://dmoai.cloud.dkrz.de/oai/
 format=oai_datacite
 set=
