@@ -2,18 +2,17 @@
 #
 # Datenquellen harvesten
 #
-# TODO: Hängende Harvestingprozesse erkennen
-#
 
 function metha_sync () {
     local baseUrl=$1
     local format=$2
     local set=$3
+    local methaOpts=$4
 
     if [ -z "$set" ]; then
-        /usr/sbin/metha-sync -format $format $baseUrl
+        /usr/sbin/metha-sync $methaOpts -format $format $baseUrl
     else
-        /usr/sbin/metha-sync -format $format -set $set $baseUrl
+        /usr/sbin/metha-sync $methaOpts -format $format -set $set $baseUrl
     fi
 }
 
@@ -27,5 +26,5 @@ fi
 for source in $basedir/../data/$sourceId
 do
     source $source/about.sh
-    metha_sync $baseUrl $format $set
+    metha_sync $baseUrl $format $set $methaOpts
 done
